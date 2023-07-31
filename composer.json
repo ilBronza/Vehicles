@@ -12,7 +12,6 @@
     "homepage": "https://github.com/ilbronza/vehicles",
     "keywords": ["Laravel", "Vehicles"],
     "require": {
-        "illuminate/support": "~9"
     },
     "require-dev": {
     },
