@@ -1,0 +1,39 @@
+{
+    "name": "ilbronza/vehicles",
+    "description": ":vehicles management",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Davide Bronzini",
+            "email": "davide_bronzini@hotmail.com",
+            "homepage": "https://sistema.srl"
+        }
+    ],
+    "homepage": "https://github.com/ilbronza/vehicles",
+    "keywords": ["Laravel", "Vehicles"],
+    "require": {
+        "illuminate/support": "~9"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "IlBronza\\Vehicles\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IlBronza\\Vehicles\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IlBronza\\Vehicles\\VehiclesServiceProvider"
+            ],
+            "aliases": {
+                "Vehicles": "IlBronza\\Vehicles\\Facades\\Vehicles"
+            }
+        }
+    }
+}
