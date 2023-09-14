@@ -4,11 +4,36 @@ namespace IlBronza\Vehicles\Models;
 
 
 use IlBronza\Buttons\Button;
+use IlBronza\Schedules\Traits\InteractsWithSchedule;
 use IlBronza\Vehicles\Models\Kmreading;
 use IlBronza\Vehicles\Models\Type;
 
 class Vehicle extends VehiclePackageBaseModel
 {
+	/**
+	 * START schedule interactions
+	 **/
+	use InteractsWithSchedule;
+
+	public function getSchedulableModelNameAttribute() : string
+	{
+		return trans('vehicles::vehicles.vehicle');
+	}
+
+	public function getSchedulableModelTableFieldsArray() : array
+	{
+		return [
+			'fields' => [
+				'plate' => 'flat',
+				'current_km' => 'flat'
+			]
+		];
+	}
+
+	/**
+	 * END schedule interactions
+	 **/
+
 	static $deletingRelationships = ['kmreadings'];
 
 	public function getCreateKmreadingButton() : Button

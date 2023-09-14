@@ -13,6 +13,8 @@ class VehicleRelationManager Extends RelationshipsManager
 				'relations' => [
 					'kmreadings' => config('vehicles.models.kmreading.controllers.index'),
 					'type' => config('vehicles.models.type.controllers.show'),
+					'schedules' => config('schedules.models.schedule.controllers.index'),
+					'scheduledNotifications' => config('schedules.models.scheduledNotification.controllers.index'),
 				]
 			]
 		];
