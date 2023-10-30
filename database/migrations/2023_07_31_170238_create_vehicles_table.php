@@ -17,7 +17,15 @@ class CreateVehiclesTable extends Migration
             $table->string('id')->primary();
             $table->string('name');
 
+            $table->string('producer')->nullable();
+
             $table->unsignedSmallInteger('passengers')->nullable();
+
+            $table->decimal('km_liter_city')->commenct('km per liter city')->nullable();
+            $table->decimal('km_liter_extra')->commenct('km per liter extracity')->nullable();
+            $table->decimal('km_liter_highway')->commenct('km per liter highway')->nullable();
+
+            $table->string('fuels')->nullable();
 
             $table->decimal('external_length')->commenct('millimeters')->nullable();
             $table->decimal('external_width')->commenct('millimeters')->nullable();
@@ -46,8 +54,10 @@ class CreateVehiclesTable extends Migration
             $table->string('plate')->nullable();
             $table->string('name')->nullable();
 
+            $table->text('description')->nullable();
+            $table->decimal('km_cost')->commenct('EURO per km')->nullable();
+
             $table->timestamp('registered_at')->nullable();
-            $table->unsignedInteger('initial_km')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
