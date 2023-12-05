@@ -40,7 +40,7 @@ class Vehicle extends VehiclePackageBaseModel
 	{
 		return Button::create([
 			'href' => $this->getCreateKmreadingUrl(),
-			'text' => trans('kmreading.create'),
+			'text' => 'vehicles::kmreading.create',
 			'icon' => 'plus'
 		]);
 	}

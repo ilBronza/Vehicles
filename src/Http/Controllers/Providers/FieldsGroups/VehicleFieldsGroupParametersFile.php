@@ -9,6 +9,7 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
 	static function getFieldsGroup() : array
 	{
 		return [
+            'translationPrefix' => 'vehicles::fields',
             'fields' => 
             [
                 'mySelfPrimary' => 'primary',

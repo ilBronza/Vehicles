@@ -9,14 +9,14 @@ class TypeFieldsGroupParametersFile extends FieldsGroupParametersFile
 	static function getFieldsGroup() : array
 	{
 		return [
+            'translationPrefix' => 'vehicles::fields',
             'fields' => 
             [
                 'mySelfPrimary' => 'primary',
                 'mySelfEdit' => 'links.edit',
                 'mySelfSee' => 'links.see',
-
-
                 'name' => 'flat',
+                'vehicles_count' => 'flat',
                 'passengers' => 'flat',
                 'license_needed' => 'flat',
                 'external_length' => 'flat',

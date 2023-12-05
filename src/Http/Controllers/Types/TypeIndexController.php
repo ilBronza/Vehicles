@@ -20,7 +20,9 @@ class TypeIndexController extends TypeCRUD
 
     public function getIndexElements()
     {
-        return $this->getModelClass()::all();
+        return $this->getModelClass()::withCount(
+            'vehicles'
+        )->get();
     }
 
 }

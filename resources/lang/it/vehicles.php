@@ -1,5 +1,8 @@
 <?php
 
 return [
-	'vehicle' => 'Veicolo'
+	'vehicle' => 'Veicolo',
+	'types' => 'Tipologie',
+	'kmreadings' => 'Letture kilometriche',
+	'list' => 'Lista'
 ];

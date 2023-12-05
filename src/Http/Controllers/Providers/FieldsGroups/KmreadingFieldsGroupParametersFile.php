@@ -11,6 +11,7 @@ class KmreadingFieldsGroupParametersFile extends FieldsGroupParametersFile
 	static function getFieldsGroup() : array
 	{
 		return [
+            'translationPrefix' => 'vehicles::fields',
             'fields' => 
             [
                 'mySelfPrimary' => 'primary',
@@ -33,12 +34,6 @@ class KmreadingFieldsGroupParametersFile extends FieldsGroupParametersFile
                     'property' => 'name',
                     'avoidIcon' => true
                 ],
-
-                // 'plate' => 'flat',
-                // 'registered_at' => 'flat',
-
-                // 'initial_km' => 'flat',
-                // 'current_km' => 'flat',
 
                 'mySelfDelete' => 'links.delete'
             ]
