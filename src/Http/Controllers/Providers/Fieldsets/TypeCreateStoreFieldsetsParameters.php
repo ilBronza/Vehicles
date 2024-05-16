@@ -10,6 +10,7 @@ class TypeCreateStoreFieldsetsParameters extends FieldsetParametersFile
     {
         return [
             'package' => [
+                'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'name' => ['text' => 'string|required'],
                     'passengers' => ['number' => 'integer|nullable|min:0|max:64'],
@@ -18,6 +19,7 @@ class TypeCreateStoreFieldsetsParameters extends FieldsetParametersFile
                 'width' => ["1-3@l", '1-2@m']
             ],
             'sizes' => [
+                'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'external_length' => ['number' => 'numeric|nullable|min:0'],
                     'external_width' => ['number' => 'numeric|nullable|min:0'],
@@ -27,6 +29,7 @@ class TypeCreateStoreFieldsetsParameters extends FieldsetParametersFile
                 'width' => ["1-3@l", '1-2@m']
             ],
             'internal' => [
+                'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'internal_length' => ['number' => 'numeric|nullable|min:0'],
                     'internal_width' => ['number' => 'numeric|nullable|min:0'],

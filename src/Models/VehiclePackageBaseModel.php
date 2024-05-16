@@ -3,13 +3,15 @@
 namespace IlBronza\Vehicles\Models;
 
 
-use IlBronza\CRUD\Models\BaseModel;
+use IlBronza\CRUD\Models\PackagedBaseModel;
 use IlBronza\CRUD\Traits\Model\CRUDUseUuidTrait;
 use Illuminate\Support\Str;
 
-class VehiclePackageBaseModel extends BaseModel
+class VehiclePackageBaseModel extends PackagedBaseModel
 {
 	use CRUDUseUuidTrait;
+
+	static $packageConfigPrefix = 'vehicles';
 
 	protected $keyType = 'string';
 
@@ -23,12 +25,12 @@ class VehiclePackageBaseModel extends BaseModel
 		return static::$modelConfigPrefix ?? Str::camel(class_basename(static::class));
 	}
 
-	static function getProjectClassName()
+	static function getProjectClassName() : string
 	{
 		return config('vehicles.models.' . static::getModelConfigPrefix() . '.class');
 	}
 
-	public function getTable()
+	public function getTable() : string
 	{
 		return config("vehicles.models.{$this->getModelConfigPrefix()}.table");
 	}

@@ -4,5 +4,7 @@ return [
 	'vehicle' => 'Veicolo',
 	'types' => 'Tipologie',
 	'kmreadings' => 'Letture kilometriche',
-	'list' => 'Lista'
+	'type' => 'Tipologia',
+	'vehiclesManager' => 'Parco Veicoli',
+	'list' => 'Lista veicoli'
 ];

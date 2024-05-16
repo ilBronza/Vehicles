@@ -13,6 +13,7 @@ class KmreadingCreateStoreFieldsetsParameters extends FieldsetParametersFile
 
         return [
             'package' => [
+                'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'km' => ['number' => 'numeric|required|min:' . ($min ?? 0)],
                     'registered_at' => ['datetime' => 'date|required'],

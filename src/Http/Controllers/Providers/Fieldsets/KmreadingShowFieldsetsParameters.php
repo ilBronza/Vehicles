@@ -10,6 +10,7 @@ class KmreadingShowFieldsetsParameters extends FieldsetParametersFile
     {
         return [
             'package' => [
+                'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'km' => ['number' => 'numeric'],
                     'registered_at' => ['datetime' => 'date|required'],

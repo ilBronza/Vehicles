@@ -24,7 +24,7 @@ class VehicleShowController extends VehicleCRUD
 
     public function setShowButtons()
     {
-        $this->showButtons[] = $this->getModel()->getCreateKmreadingButton();        
+        $this->showButtons[] = $this->getModel()->getCreateKmreadingButton();
     }
 
     public function show(string $vehicle)

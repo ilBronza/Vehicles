@@ -10,6 +10,7 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
     {
         return [
             'package' => [
+                'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'name' => ['text' => 'string|required'],
                     'plate' => ['text' => 'string|required'],
@@ -24,6 +25,7 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                 'width' => ["1-3@l", '1-2@m']
             ],
             'registration' => [
+                'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'registered_at' => ['date' => 'date|nullable'],
                     'initial_km' => ['number' => 'numeric|nullable|min:0'],
