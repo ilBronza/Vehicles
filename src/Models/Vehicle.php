@@ -3,17 +3,27 @@
 namespace IlBronza\Vehicles\Models;
 
 
+use Carbon\Carbon;
 use IlBronza\Buttons\Button;
+use IlBronza\Products\Models\Interfaces\SellableItemInterface;
+use IlBronza\Products\Models\Traits\Sellable\InteractsWithSellableTrait;
+use IlBronza\Schedules\Models\Type as ScheduleType;
 use IlBronza\Schedules\Traits\InteractsWithSchedule;
 use IlBronza\Vehicles\Models\Kmreading;
 use IlBronza\Vehicles\Models\Type;
 
-class Vehicle extends VehiclePackageBaseModel
+class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 {
 	/**
 	 * START schedule interactions
 	 **/
 	use InteractsWithSchedule;
+	use InteractsWithSellableTrait;
+
+	public function getMorphClass()
+	{
+		return 'Vehicle';
+	}
 
 	public function getSchedulableModelNameAttribute() : string
 	{
@@ -84,6 +94,11 @@ class Vehicle extends VehiclePackageBaseModel
 		return $this->hasOne(Kmreading::getProjectClassName(), 'id', 'live_last_kmreading_id');
 	}
 
+	public function getPassengersCapacity() : ? int
+	{
+		return $this->getType()->getPassengersCapacity();
+	}
+
 	public function scopeWithLastKmreading($query)
 	{
         $query->addSelect([
@@ -97,5 +112,26 @@ class Vehicle extends VehiclePackageBaseModel
 	public function getVolumeMc()
 	{
 		return $this->getType()->getVolumeMc();
+	}
+
+	public function getRCAStartingValue()// : Carbon
+	{
+		$rca = ScheduleType::getProjectClassname()::findCachedField('name', 'Assicurazione RCA');
+
+		if($schedule = $this->getLatestByType($rca))
+			if(($deadline = $schedule->getDeadlineValue()) > Carbon::now())
+				return $deadline;
+
+		return Carbon::now();
+	}
+
+	public function getPlate() : ? string
+	{
+		return $this->plate;
+	}
+
+	public function getFullName() : string
+	{
+		return "{$this->getType()->getName()} - {$this->getPlate()}";
 	}
 }

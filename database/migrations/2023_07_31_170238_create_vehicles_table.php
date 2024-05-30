@@ -25,7 +25,11 @@ class CreateVehiclesTable extends Migration
             $table->decimal('km_liter_extra')->commenct('km per liter extracity')->nullable();
             $table->decimal('km_liter_highway')->commenct('km per liter highway')->nullable();
 
+            $table->decimal('cost_per_km')->nullable();
+
             $table->string('fuels')->nullable();
+
+            $table->string('vehicle_type')->nullable();
 
             $table->decimal('external_length')->commenct('millimeters')->nullable();
             $table->decimal('external_width')->commenct('millimeters')->nullable();
@@ -35,6 +39,7 @@ class CreateVehiclesTable extends Migration
             $table->decimal('internal_width')->commenct('millimeters')->nullable();
             $table->decimal('internal_height')->commenct('millimeters')->nullable();
             $table->decimal('internal_volume_mq')->nullable();
+
 
             $table->decimal('mass_empty')->nullable();
             $table->decimal('mass_max_loading')->nullable();
@@ -55,7 +60,7 @@ class CreateVehiclesTable extends Migration
             $table->string('name')->nullable();
 
             $table->text('description')->nullable();
-            $table->decimal('km_cost')->commenct('EURO per km')->nullable();
+            $table->decimal('cost_per_km')->commenct('EURO per km')->nullable();
 
             $table->timestamp('registered_at')->nullable();
 

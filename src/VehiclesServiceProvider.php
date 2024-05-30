@@ -2,6 +2,8 @@
 
 namespace IlBronza\Vehicles;
 
+use IlBronza\Vehicles\Models\Vehicle;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class VehiclesServiceProvider extends ServiceProvider
@@ -13,6 +15,10 @@ class VehiclesServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Relation::morphMap([
+            'Vehicle' => Vehicle::getProjectClassname()
+        ]);
+
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'vehicles');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'ilbronza');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');

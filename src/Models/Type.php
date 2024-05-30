@@ -17,4 +17,9 @@ class Type extends VehiclePackageBaseModel
 	{
 		return $this->internal_volume_mq;
 	}
+
+	public function getPassengersCapacity() : ? int
+	{
+		return $this->passengers;
+	}
 }
