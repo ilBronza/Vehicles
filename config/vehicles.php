@@ -30,6 +30,8 @@ use IlBronza\Vehicles\Models\Vehicle;
 return [
     'routePrefix' => 'ibVehicles.',
 
+    'enabled' => true,
+
     'models' => [
         'type' => [
             'class' => Type::class,

@@ -56,6 +56,8 @@ class CreateVehiclesTable extends Migration
             $table->string('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on(config('vehicles.models.type.table'));
 
+            $table->nullableUuidMorphs('owner');
+
             $table->string('plate')->nullable();
             $table->string('name')->nullable();
 

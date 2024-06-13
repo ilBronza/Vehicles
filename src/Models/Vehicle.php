@@ -6,19 +6,54 @@ namespace IlBronza\Vehicles\Models;
 use Carbon\Carbon;
 use IlBronza\Buttons\Button;
 use IlBronza\Products\Models\Interfaces\SellableItemInterface;
+use IlBronza\Products\Models\Interfaces\SellableSupplierPriceCreatorBaseClass;
+use IlBronza\Products\Models\Sellables\Supplier;
 use IlBronza\Products\Models\Traits\Sellable\InteractsWithSellableTrait;
 use IlBronza\Schedules\Models\Type as ScheduleType;
 use IlBronza\Schedules\Traits\InteractsWithSchedule;
+use IlBronza\Vehicles\Helpers\VehiclePricesCreatorHelper;
 use IlBronza\Vehicles\Models\Kmreading;
 use IlBronza\Vehicles\Models\Type;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Collection;
 
 class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 {
-	/**
-	 * START schedule interactions
-	 **/
 	use InteractsWithSchedule;
 	use InteractsWithSellableTrait;
+
+	public function getNameForSellable(... $parameters) : string
+	{
+		return $this->getFullName();
+	}
+
+	public function owner() : MorphTo
+	{
+		return $this->morphTo();
+	}
+
+	public function getOwner() : ? Model
+	{
+		return $this->owner;
+	}
+
+	public function getPossibleSuppliersElements() : Collection
+	{
+		return collect([
+			$this->getOwner()
+		]);
+	}
+
+	public function getPriceCreator() : SellableSupplierPriceCreatorBaseClass
+	{
+		return new VehiclePricesCreatorHelper;
+	}
+
+	public function getSellablePricesBySupplier(Supplier $supplier, ...$parameters) : array
+	{
+		return [];
+	}
 
 	public function getMorphClass()
 	{
