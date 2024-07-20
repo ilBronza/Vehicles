@@ -26,7 +26,10 @@ class VehicleIndexController extends VehicleCRUD
 
     public function getIndexElements()
     {
-        return $this->getModelClass()::with('type')->withLastKmReading()->get();
+        return $this->getModelClass()::with('type')
+                ->withCount('sellableSuppliers')
+                ->withLastKmReading()
+                ->get();
     }
 
 }

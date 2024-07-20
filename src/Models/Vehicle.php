@@ -106,7 +106,7 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 		return $this->belongsTo(Type::getProjectClassName());
 	}
 
-	public function getType() : Type
+	public function getType() : ? Type
 	{
 		return $this->type;
 	}
@@ -167,6 +167,11 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 
 	public function getFullName() : string
 	{
-		return "{$this->getType()->getName()} - {$this->getPlate()}";
+		return "{$this->getType()?->getName()} - {$this->getPlate()}";
+	}
+
+	public function getCreatedAt()
+	{
+		return $this->created_at;
 	}
 }

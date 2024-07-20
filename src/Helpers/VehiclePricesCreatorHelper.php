@@ -9,6 +9,16 @@ class VehiclePricesCreatorHelper extends SellableSupplierPriceCreatorBaseClass
 {
 	public function createPrices() : Collection
     {
-    	dd("£ QUA dentro scrivere regola dei prezzi");
+        $price = $this->createPrice();
+
+        $price->setMeasurementUnit('km');
+
+        $price->price = 0;
+        $price->save();
+
+        $this->getSellableSupplier()->directPrice()->associate($price);
+        $this->getSellableSupplier()->save();
+
+        return collect([$price]);
     }
 }

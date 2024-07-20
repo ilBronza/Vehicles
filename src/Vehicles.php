@@ -21,7 +21,7 @@ class Vehicles implements RoutedObjectInterface
 
         $vehiclesManagerButton = $menu->createButton([
             'name' => 'vehiclesManager',
-            'icon' => 'user-gear',
+            'icon' => 'truck-moving',
             'text' => 'vehicles::vehicles.vehiclesManager',
         ]);
 

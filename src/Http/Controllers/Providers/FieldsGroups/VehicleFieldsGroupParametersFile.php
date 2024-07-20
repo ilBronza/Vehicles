@@ -25,6 +25,10 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
                     'width' => '65px'
                 ],
 
+
+                'sellableSuppliers_count' => 'flat',
+                'sellable_suppliers_count' => 'flat',
+
                 'name' => 'flat',
                 'plate' => 'flat',
                 'registered_at' => 'flat',
