@@ -40,9 +40,12 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 
 	public function getPossibleSuppliersElements() : Collection
 	{
-		return collect([
-			$this->getOwner()
-		]);
+		if($owner = $this->getOwner())
+			return collect([
+				$owner
+			]);
+
+		return collect();
 	}
 
 	public function getPriceCreator() : SellableSupplierPriceCreatorBaseClass
