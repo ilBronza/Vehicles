@@ -13,7 +13,7 @@ class VehiclePricesCreatorHelper extends SellableSupplierPriceCreatorBaseClass
 		$price = $this->createPrice();
 
 		$price->setMeasurementUnit('km');
-		$price->collection_id = 'distance_price';
+		$price->collection_id = 'distancePrice';
 
 		$price->price = 0;
 		$price->save();

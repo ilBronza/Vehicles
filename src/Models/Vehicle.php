@@ -2,9 +2,10 @@
 
 namespace IlBronza\Vehicles\Models;
 
-
 use Carbon\Carbon;
 use IlBronza\Buttons\Button;
+use IlBronza\CRUD\Models\Casts\CastFieldPrice;
+use IlBronza\Prices\Models\Traits\InteractsWithPriceTrait;
 use IlBronza\Products\Models\Interfaces\SellableItemInterface;
 use IlBronza\Products\Models\Interfaces\SellableSupplierPriceCreatorBaseClass;
 use IlBronza\Products\Models\Sellables\Supplier;
@@ -22,8 +23,13 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 {
 	use InteractsWithSchedule;
 	use InteractsWithSellableTrait;
+	use InteractsWithPriceTrait;
 
-	public function getNameForSellable(... $parameters) : string
+	protected $casts = [
+		'distance_price' => CastFieldPrice::class . ':distancePrice,km',
+	];
+
+	public function getNameForSellable(...$parameters) : string
 	{
 		return $this->getFullName();
 	}
@@ -33,14 +39,14 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 		return $this->morphTo();
 	}
 
-	public function getOwner() : ? Model
+	public function getOwner() : ?Model
 	{
 		return $this->owner;
 	}
 
 	public function getPossibleSuppliersElements() : Collection
 	{
-		if($owner = $this->getOwner())
+		if ($owner = $this->getOwner())
 			return collect([
 				$owner
 			]);
@@ -98,8 +104,7 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 		return route(config('vehicles.routePrefix') . 'vehicles.kmreadings.create', ['vehicle' => $this]);
 	}
 
-
-	public function getCurrentKmAttribute() : ? float
+	public function getCurrentKmAttribute() : ?float
 	{
 		return $this->getLastKmreading()?->getKm();
 	}
@@ -109,14 +114,14 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 		return $this->belongsTo(Type::getProjectClassName());
 	}
 
-	public function getType() : ? Type
+	public function getType() : ?Type
 	{
 		return $this->type;
 	}
 
-	public function getLastKmreading() : ? Kmreading
+	public function getLastKmreading() : ?Kmreading
 	{
-		if($this->relationLoaded('lastKmreading'))
+		if ($this->relationLoaded('lastKmreading'))
 			return $this->lastKmreading;
 
 		return $this->kmreadings()->orderBy('created_at', 'DESC')->first();
@@ -132,19 +137,16 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 		return $this->hasOne(Kmreading::getProjectClassName(), 'id', 'live_last_kmreading_id');
 	}
 
-	public function getPassengersCapacity() : ? int
+	public function getPassengersCapacity() : ?int
 	{
 		return $this->getType()->getPassengersCapacity();
 	}
 
 	public function scopeWithLastKmreading($query)
 	{
-        $query->addSelect([
-            'live_last_kmreading_id' => Kmreading::select('id')
-                    ->whereColumn(config('vehicles.models.kmreading.table') . '.vehicle_id', $this->getTable() . '.id')
-                    ->orderBy('created_at', 'DESC')
-                    ->take(1)
-                ])->with('lastKmreading');
+		$query->addSelect([
+			'live_last_kmreading_id' => Kmreading::select('id')->whereColumn(config('vehicles.models.kmreading.table') . '.vehicle_id', $this->getTable() . '.id')->orderBy('created_at', 'DESC')->take(1)
+		])->with('lastKmreading');
 	}
 
 	public function getVolumeMc()
@@ -154,16 +156,31 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 
 	public function getRCAStartingValue()// : Carbon
 	{
-		$rca = ScheduleType::getProjectClassname()::findCachedField('name', 'Assicurazione RCA');
+		$rca = ScheduleType::getProjectClassName()::findCachedField('name', 'Assicurazione RCA');
 
-		if($schedule = $this->getLatestByType($rca))
-			if(($deadline = $schedule->getDeadlineValue()) > Carbon::now())
+		if ($schedule = $this->getLatestByType($rca))
+			if (($deadline = $schedule->getDeadlineValue()) > Carbon::now())
 				return $deadline;
 
 		return Carbon::now();
 	}
 
-	public function getPlate() : ? string
+	public function getLastCarInspection() : Carbon
+	{
+		$carInspectionTypes = ScheduleType::getProjectClassName()::where('name', 'like', '%revisione%')->get();
+
+		if($schedule = $this->schedules()->byTypes($carInspectionTypes)->orderByDesc('deadline_value')->first())
+			$schedule->getDeadlineValue();
+
+		return $this->getImmatricolationDate();
+	}
+
+	public function getImmatricolationDate() : Carbon
+	{
+		return $this->created_at;
+	}
+
+	public function getPlate() : ?string
 	{
 		return $this->plate;
 	}
