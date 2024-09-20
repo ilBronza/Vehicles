@@ -22,12 +22,12 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
                     'textParameter' => 'name',
                     'target' => '_blank',
                     'icon' => false,
-                    'width' => '65px'
+                    'width' => '245px'
                 ],
 
 
-                'sellableSuppliers_count' => 'flat',
-                'sellable_suppliers_count' => 'flat',
+//                'sellableSuppliers_count' => 'flat',
+//                'sellable_suppliers_count' => 'flat',
 
                 'name' => 'flat',
                 'plate' => 'flat',

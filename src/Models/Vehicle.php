@@ -19,20 +19,20 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Collection;
 
-class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
+class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 {
 	use InteractsWithSchedule;
-	use InteractsWithSellableTrait;
-	use InteractsWithPriceTrait;
+//	use InteractsWithSellableTrait;
+//	use InteractsWithPriceTrait;
 
-	protected $casts = [
-		'distance_price' => CastFieldPrice::class . ':distancePrice,km',
-	];
+//	protected $casts = [
+//		'distance_price' => CastFieldPrice::class . ':distancePrice,km',
+//	];
 
-	public function getNameForSellable(...$parameters) : string
-	{
-		return $this->getFullName();
-	}
+//	public function getNameForSellable(...$parameters) : string
+//	{
+//		return $this->getFullName();
+//	}
 
 	public function owner() : MorphTo
 	{
@@ -44,25 +44,25 @@ class Vehicle extends VehiclePackageBaseModel implements SellableItemInterface
 		return $this->owner;
 	}
 
-	public function getPossibleSuppliersElements() : Collection
-	{
-		if ($owner = $this->getOwner())
-			return collect([
-				$owner
-			]);
+//	public function getPossibleSuppliersElements() : Collection
+//	{
+//		if ($owner = $this->getOwner())
+//			return collect([
+//				$owner
+//			]);
+//
+//		return collect();
+//	}
 
-		return collect();
-	}
-
-	public function getPriceCreator() : SellableSupplierPriceCreatorBaseClass
-	{
-		return new VehiclePricesCreatorHelper;
-	}
-
-	public function getSellablePricesBySupplier(Supplier $supplier, ...$parameters) : array
-	{
-		return [];
-	}
+//	public function getPriceCreator() : SellableSupplierPriceCreatorBaseClass
+//	{
+//		return new VehiclePricesCreatorHelper;
+//	}
+//
+//	public function getSellablePricesBySupplier(Supplier $supplier, ...$parameters) : array
+//	{
+//		return [];
+//	}
 
 	public function getMorphClass()
 	{
