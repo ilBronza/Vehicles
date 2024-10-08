@@ -24,8 +24,9 @@ class KmreadingFieldsGroupParametersFile extends FieldsGroupParametersFile
                 'vehicle_id' => [
                     'type' => 'links.LinkCachedProperty',
                     'modelClass' => Vehicle::getProjectClassName(),
-                    'property' => 'name',
-                    'avoidIcon' => true
+                    'property' => 'full_name',
+                    'avoidIcon' => true,
+	                'width' => '220px'
                 ],
 
                 'user_id' => [

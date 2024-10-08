@@ -25,6 +25,10 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 //	use InteractsWithSellableTrait;
 //	use InteractsWithPriceTrait;
 
+	protected $casts = [
+		'registered_at' => 'date'
+	];
+
 //	protected $casts = [
 //		'distance_price' => CastFieldPrice::class . ':distancePrice,km',
 //	];
@@ -185,9 +189,17 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 		return $this->plate;
 	}
 
-	public function getFullName() : string
+	public function getFullName() : ? string
 	{
-		return "{$this->getType()?->getName()} - {$this->getPlate()}";
+		return $this->full_name;
+	}
+
+	public function getFullNameAttribute() : ? string
+	{
+		if(! $this->getPlate())
+			return $this->getName();
+
+		return "{$this->getName()} - {$this->getPlate()}";
 	}
 
 	public function getCreatedAt()
