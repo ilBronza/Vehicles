@@ -19,6 +19,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Collection;
 
+use function is_string;
+
 class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 {
 	use InteractsWithSchedule;
@@ -144,6 +146,17 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 	public function getPassengersCapacity() : ?int
 	{
 		return $this->getType()->getPassengersCapacity();
+	}
+
+	public function scopeByType($query, string|array $type)
+	{
+		if(is_string($type))
+			$type = [$type];
+
+		$query->whereHas('type', function ($query) use ($type)
+		{
+			$query->whereIn('name', $type);
+		});
 	}
 
 	public function scopeWithLastKmreading($query)

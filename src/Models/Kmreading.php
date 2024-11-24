@@ -10,8 +10,8 @@ class Kmreading extends VehiclePackageBaseModel
 {
 	use CRUDCreatedByUserTrait;
 
-	protected $dates = [
-		'registered_at'
+	protected $casts = [
+		'registered_at' => 'date'
 	];
 
 	public function getKm() : ? float

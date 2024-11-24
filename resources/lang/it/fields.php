@@ -19,7 +19,10 @@ return [
     'vehicle_id' => 'Veicolo',
     'user_id' => 'Operatore',
 	'type' => 'Modello',
-    'plate' => 'Targa',
+	'owner' => 'Proprietario',
+	'cost_per_km' => '€/km',
+	'plate' => 'Targa',
+	'slug' => 'Sigla',
     'initial_km' => 'Km iniziali',
     'current_km' => 'Km attuali',
 ];

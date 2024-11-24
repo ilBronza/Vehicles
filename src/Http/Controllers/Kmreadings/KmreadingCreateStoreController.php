@@ -12,6 +12,8 @@ class KmreadingCreateStoreController extends KmreadingCRUD
     use CRUDCreateStoreTrait;
     use CRUDRelationshipTrait;
 
+	public $returnBack = true;
+
     public $allowedMethods = [
         'createFromVehicle',
         'create',

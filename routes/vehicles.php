@@ -12,6 +12,7 @@ Route::group([
 
 Route::group(['prefix' => 'vehicles'], function()
 {
+	//KmreadingCreateStoreController
 	Route::get('{vehicle}/kmreadings/create', [Vehicles::getController('kmreading', 'create'), 'createFromVehicle'])
 		->name('vehicles.kmreadings.create');
 
