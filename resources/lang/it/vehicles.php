@@ -6,5 +6,7 @@ return [
 	'kmreadings' => 'Letture kilometriche',
 	'type' => 'Tipologia',
 	'vehiclesManager' => 'Parco Veicoli',
-	'list' => 'Lista veicoli'
+	'list' => 'Lista veicoli',
+	'vehicles' => 'Veicoli',
+	'kmreading' => 'Letture km',
 ];

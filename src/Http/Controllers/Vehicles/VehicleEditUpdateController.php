@@ -11,9 +11,9 @@ class VehicleEditUpdateController extends VehicleCRUD
 
     public $allowedMethods = ['edit', 'update'];
 
-    public function getGenericParametersFile() : ? string
+    public function getEditParametersFile() : ? string
     {
-        return config('vehicles.models.vehicle.parametersFiles.create');
+        return config('vehicles.models.vehicle.parametersFiles.edit');
     }
 
     public function edit(string $vehicle)

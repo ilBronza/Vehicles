@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class TypeEditUpdateController extends TypeCRUD
 {
+
     use CRUDEditUpdateTrait;
 
     public $allowedMethods = ['edit', 'update'];

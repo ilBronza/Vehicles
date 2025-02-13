@@ -1,6 +1,11 @@
 <?php
 
 return [
+	'baseData' => 'Anagrafica base',
+	'consumptions' => 'Consumi',
+	'km_liter_city' => 'Km/L città',
+	'km_liter_extra' => 'Km/L extra',
+	'km_liter_highway' => 'Km/L autostrada',
 	'name' => 'Nome',
     'vehicles_count' => 'Numero veicoli',
     'passengers' => 'Passeggeri',
@@ -25,4 +30,5 @@ return [
 	'slug' => 'Sigla',
     'initial_km' => 'Km iniziali',
     'current_km' => 'Km attuali',
+	'supplier.target.slug' => 'Sigla'
 ];

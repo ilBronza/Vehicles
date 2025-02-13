@@ -4,9 +4,12 @@ namespace IlBronza\Vehicles;
 
 use IlBronza\CRUD\Providers\RouterProvider\IbRouter;
 use IlBronza\CRUD\Providers\RouterProvider\RoutedObjectInterface;
+use IlBronza\CRUD\Traits\IlBronzaPackages\IlBronzaPackagesTrait;
 
 class Vehicles implements RoutedObjectInterface
 {
+	use IlBronzaPackagesTrait;
+
     public function manageMenuButtons()
     {
         if(! $menu = app('menu'))
@@ -44,14 +47,24 @@ class Vehicles implements RoutedObjectInterface
                 'href' => IbRouter::route($this, 'types.index')
             ])
         );
-        $vehiclesManagerButton->addChild(
-                $menu->createButton([
-                'name' => 'vehicles.kmreadings.list',
-                'icon' => 'bookmark',
-                'text' => 'vehicles::vehicles.kmreadings',
-                'href' => IbRouter::route($this, 'kmreadings.index')
-            ])
-        );
+
+	    $vehiclesManagerButton->addChild(
+		    $menu->createButton([
+			    'name' => 'vehicles.kmreadings.list',
+			    'icon' => 'bookmark',
+			    'text' => 'vehicles::vehicles.kmreadings',
+			    'href' => IbRouter::route($this, 'kmreadings.index')
+		    ])
+	    );
+
+	    $vehiclesManagerButton->addChild(
+		    $menu->createButton([
+			    'name' => 'vehicles.engagement.index',
+			    'icon' => 'calendar',
+			    'text' => 'vehicles::vehicles.engagement.index',
+			    'href' => IbRouter::route($this, 'vehicles.engagement.index')
+		    ])
+	    );
     }
 
     public function getRoutePrefix() : ? string

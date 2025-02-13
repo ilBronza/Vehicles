@@ -21,6 +21,7 @@ use IlBronza\Vehicles\Http\Controllers\Types\TypeShowController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleCreateStoreController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleDestroyController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleEditUpdateController;
+use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleEngagementController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleIndexController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleShowController;
 use IlBronza\Vehicles\Models\Kmreading;
@@ -69,7 +70,8 @@ return [
                 'show' => VehicleRelationManager::class
             ],
             'controllers' => [
-                'index' => VehicleIndexController::class,
+	            'engagement' => VehicleEngagementController::class,
+	            'index' => VehicleIndexController::class,
                 'create' => VehicleCreateStoreController::class,
                 'store' => VehicleCreateStoreController::class,
                 'show' => VehicleShowController::class,

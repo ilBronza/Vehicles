@@ -36,7 +36,7 @@ class KmreadingFieldsGroupParametersFile extends FieldsGroupParametersFile
                     'avoidIcon' => true
                 ],
 
-                'mySelfDelete' => 'links.delete'
+//                'mySelfDelete' => 'links.delete'
             ]
         ];
 	}

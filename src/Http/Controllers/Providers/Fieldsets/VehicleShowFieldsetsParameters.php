@@ -9,7 +9,7 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
     public function _getFieldsetsParameters() : array
     {
         return [
-            'package' => [
+            'baseData' => [
                 'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'name' => ['text' => 'string|required'],
@@ -20,9 +20,8 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                         'rules' => 'string|nullable|exists:vehicles__types,id',
                         'relation' => 'type'
                     ],
-
                 ],
-                'width' => ["1-3@l", '1-2@m']
+	            'width' => ['large']
             ],
             'registration' => [
                 'translationPrefix' => 'vehicles::fields',
@@ -31,7 +30,7 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                     'initial_km' => ['number' => 'numeric|nullable|min:0'],
                     'current_km' => ['number' => 'numeric|nullable|min:0']
                 ],
-                'width' => ["1-3@l", '1-2@m']
+	            'width' => ['medium']
             ]
         ];
     }

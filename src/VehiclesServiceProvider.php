@@ -2,6 +2,7 @@
 
 namespace IlBronza\Vehicles;
 
+use IlBronza\CRUD\Traits\IlBronzaPackages\IlBronzaServiceProviderPackagesTrait;
 use IlBronza\Vehicles\Models\Vehicle;
 use IlBronza\Vehicles\Models\Type;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -9,6 +10,8 @@ use Illuminate\Support\ServiceProvider;
 
 class VehiclesServiceProvider extends ServiceProvider
 {
+	use IlBronzaServiceProviderPackagesTrait;
+
 	/**
 	 * Perform post-registration booting of services.
 	 *
