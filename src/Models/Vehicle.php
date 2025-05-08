@@ -166,9 +166,15 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 		])->with('lastKmreading');
 	}
 
-	public function getVolumeMc()
+	//'deprecato, usare getLoadingVolume'
+//	public function getVolumeMc()
+//	{
+////		return $this->getType()->getVolumeMc();
+//	}
+
+	public function getLoadingVolumeCubicMeters()
 	{
-		return $this->getType()->getVolumeMc();
+		return $this->getType()->getLoadingVolumeCubicMeters();
 	}
 
 	public function getRCAStartingValue()// : Carbon

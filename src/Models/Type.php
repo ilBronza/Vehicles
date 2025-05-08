@@ -19,14 +19,35 @@ class Type extends VehiclePackageBaseModel
 		return $this->vehicles;
 	}
 
-	public function getVolumeMc() : float
+	//		deprecato, usare getVolumeMc
+//	public function getVolumeMc() : float
+//	{
+////		return $this->internal_volume_mq;
+//	}
+
+	public function getLoadingVolumeCubicMeters() : ? float
 	{
-		return $this->internal_volume_mq;
+		return $this->getInternalWidth() * $this->getInternalLength() * $this->getInternalHeight() / (1000 * 1000 * 1000);
 	}
 
 	public function getPassengersCapacity() : ? int
 	{
 		return $this->passengers;
+	}
+
+	public function getInternalWidth() : ? float
+	{
+		return $this->internal_width;
+	}
+
+	public function getInternalLength() : ? float
+	{
+		return $this->internal_length;
+	}
+
+	public function getInternalHeight() : ? float
+	{
+		return $this->internal_height;
 	}
 
     public function getExternalWidth() : ? float
