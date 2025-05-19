@@ -1,6 +1,8 @@
 <?php
 
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingCreateStoreController;
+use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingDestroyController;
+use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingEditUpdateController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingIndexController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingShowController;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\KmreadingFieldsGroupParametersFile;
