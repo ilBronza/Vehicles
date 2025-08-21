@@ -30,5 +30,26 @@ return [
 	'slug' => 'Sigla',
     'initial_km' => 'Km iniziali',
     'current_km' => 'Km attuali',
-	'supplier.target.slug' => 'Sigla'
+	'supplier.target.slug' => 'Sigla',
+
+    'type.producer' => 'Produttore',
+    'type.vehicle_type' => 'Tipo',
+    'type.passengers' => 'Passeggeri',
+    'type.fuels' => 'Carburanti',
+    'type.external_length' => 'Lunghezza',
+    'type.external_width' => 'Larghezza',
+    'type.external_height' => 'Altezza',
+    'type.mass_empty' => 'Massa a vuoto',
+    'type.mass_max_loading' => 'Massimo carico',
+
+
+
+
+
+
+
+
+
+
+
 ];

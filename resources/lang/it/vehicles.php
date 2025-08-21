@@ -9,4 +9,8 @@ return [
 	'list' => 'Lista veicoli',
 	'vehicles' => 'Veicoli',
 	'kmreading' => 'Letture km',
+
+	'engagement' => [
+		'index' => 'Utilizzo'
+	]
 ];

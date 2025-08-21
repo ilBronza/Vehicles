@@ -16,6 +16,9 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
                 'mySelfEdit' => 'links.edit',
                 'mySelfSee' => 'links.see',
 
+                'plate' => 'flat',
+                'slug' => 'flat',
+
                 'type' => [
                     'type' => 'links.link',
                     'function' => 'getShowUrl',
@@ -26,11 +29,39 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
                 ],
 
 
-//                'sellableSuppliers_count' => 'flat',
-//                'sellable_suppliers_count' => 'flat',
+                'description' => [
+                    'type' => 'flat',
+                    'width' => '20em'
+                ],
 
-                'name' => 'flat',
-                'plate' => 'flat',
+                'type.producer' => 'flat',
+                'type.vehicle_type' => 'flat',
+                'type.passengers' => [
+                    'type' => 'flat',
+                    'width' => '4em'
+                ],
+                'type.fuels' => 'flat',
+                'type.external_length' => [
+                    'type' => 'flat',
+                    'width' => '4em'
+                ],
+                'type.external_width' => [
+                    'type' => 'flat',
+                    'width' => '4em'
+                ],
+                'type.external_height' => [
+                    'type' => 'flat',
+                    'width' => '4em'
+                ],
+                'type.mass_empty' => 'flat',
+                'type.mass_max_loading' => 'flat',
+
+                'name' => [
+                    'type' => 'flat',
+                    'width' => '14em'
+                ],
+
+                'cost_per_km' => 'flat',
                 'registered_at' => 'flat',
 
                 'initial_km' => 'flat',
