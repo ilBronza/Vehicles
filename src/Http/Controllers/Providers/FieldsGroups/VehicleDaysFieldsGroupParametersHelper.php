@@ -42,7 +42,7 @@ class VehicleDaysFieldsGroupParametersHelper
 			$fields["mySelf{$day}_{$partOfTheDay}"] = [
 				'type' => 'utilities.view',
 				'tDHtmlClasses' => ['workingdayselector'],
-				'width' => '33px',
+				'width' => '25px',
 				'headerHtmlClasses' => ['dayheader'],
 				'translatedName' => $date->translatedFormat('D') . ' ' . $date->format('d'),
 				'viewName' => 'days._typeSelectSingle',
