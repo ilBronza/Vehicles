@@ -16,7 +16,7 @@ class Vehicles implements RoutedObjectInterface
             return;
 
         $settingsButton = $menu->provideButton([
-                'text' => 'generals.settings',
+                'text' => 'menu::menu.settings',
                 'name' => 'settings',
                 'icon' => 'gear',
                 'roles' => ['administrator']
