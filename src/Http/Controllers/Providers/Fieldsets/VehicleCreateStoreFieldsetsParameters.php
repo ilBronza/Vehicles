@@ -20,7 +20,6 @@ class VehicleCreateStoreFieldsetsParameters extends FieldsetParametersFile
                         'rules' => 'string|nullable|exists:vehicles__types,id',
                         'relation' => 'type'
                     ],
-	                'cost_per_km' => ['number' => 'numeric|nullable'],
                 ],
                 'width' => ["1-3@l", '1-2@m']
             ],

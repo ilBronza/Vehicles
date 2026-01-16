@@ -2,11 +2,14 @@
 
 namespace IlBronza\Vehicles\Models;
 
+use IlBronza\Vehicles\Models\Traits\VehicleTypeMeasuresTrait;
 use IlBronza\Vehicles\Models\Vehicle;
 use Illuminate\Support\Collection;
 
 class Type extends VehiclePackageBaseModel
 {
+	use VehicleTypeMeasuresTrait;
+
 	static $deletingRelationships = ['vehicles'];
 
 	public function vehicles()

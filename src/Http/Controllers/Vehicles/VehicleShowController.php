@@ -4,6 +4,9 @@ namespace IlBronza\Vehicles\Http\Controllers\Vehicles;
 
 use IlBronza\CRUD\Traits\CRUDRelationshipTrait;
 use IlBronza\CRUD\Traits\CRUDShowTrait;
+use IlBronza\Products\Models\Sellables\Supplier;
+use IlBronza\Products\Providers\Helpers\Sellables\SellableCreatorHelper;
+use IlBronza\Products\Providers\Helpers\Sellables\SupplierCreatorHelper;
 
 class VehicleShowController extends VehicleCRUD
 {
@@ -30,6 +33,15 @@ class VehicleShowController extends VehicleCRUD
     public function show(string $vehicle)
     {
         $vehicle = $this->findModel($vehicle);
+
+        if(! $supplier = $vehicle->getSupplier());
+            $supplier = SupplierCreatorHelper::getOrCreateSupplierFromTarget($vehicle);
+
+        $sellable = SellableCreatorHelper::getOrcreateSellableByTarget(
+            $vehicle->getType(), [], 'vehicle'
+        );
+
+        $sellableSupplier = SellableCreatorHelper::getOrCreateSellableSupplier($supplier, $sellable);
 
         return $this->_show($vehicle);
     }

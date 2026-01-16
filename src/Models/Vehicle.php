@@ -14,16 +14,18 @@ use IlBronza\Schedules\Models\Type as ScheduleType;
 use IlBronza\Schedules\Traits\InteractsWithSchedule;
 use IlBronza\Vehicles\Helpers\VehiclePricesCreatorHelper;
 use IlBronza\Vehicles\Models\Kmreading;
+use IlBronza\Vehicles\Models\Traits\VehicleMeasuresTrait;
 use IlBronza\Vehicles\Models\Type;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Collection;
-
 use function is_string;
 
 class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 {
 	use InteractsWithSchedule;
+
+	use VehicleMeasuresTrait;
 //	use InteractsWithSellableTrait;
 //	use InteractsWithPriceTrait;
 
@@ -172,10 +174,10 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 ////		return $this->getType()->getVolumeMc();
 //	}
 
-	public function getLoadingVolumeCubicMeters()
-	{
-		return $this->getType()->getLoadingVolumeCubicMeters();
-	}
+	// public function getLoadingVolumeCubicMeters()
+	// {
+	// 	return $this->getType()->getLoadingVolumeCubicMeters();
+	// }
 
 	public function getRCAStartingValue()// : Carbon
 	{

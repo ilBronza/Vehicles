@@ -33,6 +33,10 @@ use IlBronza\Vehicles\Models\Vehicle;
 return [
     'routePrefix' => 'ibVehicles.',
 
+    'datatableFieldWidths' => [
+        'datatableFieldVehicle' => '10em'
+    ],
+
     'enabled' => true,
 
     'models' => [
