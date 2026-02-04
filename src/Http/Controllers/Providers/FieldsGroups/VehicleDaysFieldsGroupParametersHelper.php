@@ -12,7 +12,7 @@ class VehicleDaysFieldsGroupParametersHelper
 	{
 		$helper = new FieldsGroupsMergerHelper();
 
-		$helper->addFieldsGroupParameters($parametersFileName::getFieldsGroup());
+		$helper->addFieldsGroupParameters($parametersFileName::getTracedFieldsGroup());
 
 		$formParameters = static::getFieldsParametersByDates($startsAt, $endsAt);
 

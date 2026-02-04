@@ -15,7 +15,7 @@ class TypeIndexController extends TypeCRUD
 
     public function getIndexFieldsArray()
     {
-        return config('vehicles.models.type.fieldsGroupsFiles.index')::getFieldsGroup();
+        return config('vehicles.models.type.fieldsGroupsFiles.index')::getTracedFieldsGroup();
     }
 
     public function getIndexElements()

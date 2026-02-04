@@ -15,12 +15,12 @@ class KmreadingIndexController extends KmreadingCRUD
 
     public function getIndexFieldsArray()
     {
-        return config('vehicles.models.kmreading.fieldsGroupsFiles.index')::getFieldsGroup();
+        return config('vehicles.models.kmreading.fieldsGroupsFiles.index')::getTracedFieldsGroup();
     }
 
     public function getRelatedFieldsArray()
     {
-        return config('vehicles.models.kmreading.fieldsGroupsFiles.index')::getFieldsGroup();
+        return config('vehicles.models.kmreading.fieldsGroupsFiles.index')::getTracedFieldsGroup();
     }
 
     public function getIndexElements()

@@ -15,13 +15,13 @@ class VehicleIndexController extends VehicleCRUD
 
     public function getIndexFieldsArray()
     {
-        return config('vehicles.models.vehicle.fieldsGroupsFiles.index')::getFieldsGroup();
+        return config('vehicles.models.vehicle.fieldsGroupsFiles.index')::getTracedFieldsGroup();
     }
 
     public function getRelatedFieldsArray()
     {
         return $this->getIndexFieldsArray();
-        // return config('vehicles.models.vehicle.fieldsGroupsFiles.index')::getFieldsGroup();
+        // return config('vehicles.models.vehicle.fieldsGroupsFiles.index')::getTracedFieldsGroup();
     }
 
     public function getIndexElements()
