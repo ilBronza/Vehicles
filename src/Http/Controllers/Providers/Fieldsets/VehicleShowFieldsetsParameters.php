@@ -23,6 +23,14 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                 ],
 	            'width' => ['large']
             ],
+            'costs' => [
+                'translationPrefix' => 'vehicles::fields',
+                'fields' => [
+                    'cost_per_km' => ['number' => 'numeric|nullable|min:0'],
+                    'cost_per_movimentation' => ['number' => 'numeric|nullable|min:0'],
+                ],
+                'width' => ['medium']
+            ],
             'registration' => [
                 'translationPrefix' => 'vehicles::fields',
                 'fields' => [

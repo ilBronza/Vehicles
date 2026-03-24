@@ -26,6 +26,7 @@ return [
 	'type' => 'Modello',
 	'owner' => 'Proprietario',
 	'cost_per_km' => '€/km',
+	'cost_per_movimentation' => '€/movimentazione',
 	'plate' => 'Targa',
 	'slug' => 'Sigla',
     'initial_km' => 'Km iniziali',

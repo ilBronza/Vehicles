@@ -62,6 +62,7 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
                 ],
 
                 'cost_per_km' => 'flat',
+                'cost_per_movimentation' => 'flat',
                 'registered_at' => 'flat',
 
                 'initial_km' => 'flat',

@@ -28,6 +28,8 @@ class TypeFieldsGroupParametersFile extends FieldsGroupParametersFile
                 'internal_height' => 'flat',
                 'mass_max_loading' => 'flat',
                 'internal_volume_mq' => 'flat',
+                'cost_per_km' => 'flat',
+                'cost_per_movimentation' => 'flat',
 
                 'mySelfDelete' => 'links.delete'
             ]
