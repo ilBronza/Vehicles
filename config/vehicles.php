@@ -11,7 +11,10 @@ use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleFieldsGroup
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingShowFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeCreateStoreFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeEditUpdateFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeSellableEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleCreateStoreFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleShowFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers\TypeRelationManager;
 use IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers\VehicleRelationManager;
@@ -50,7 +53,10 @@ return [
                 'show' => TypeRelationManager::class
             ],
             'parametersFiles' => [
-                'create' => TypeCreateStoreFieldsetsParameters::class
+                'create' => TypeCreateStoreFieldsetsParameters::class,
+                'edit' => TypeEditUpdateFieldsetsParameters::class,
+                'editSellable' => TypeSellableEditUpdateFieldsetsParameters::class,
+                'show' => TypeEditUpdateFieldsetsParameters::class
             ],
             'controllers' => [
                 'index' => TypeIndexController::class,
@@ -70,6 +76,7 @@ return [
             ],
             'parametersFiles' => [
                 'create' => VehicleCreateStoreFieldsetsParameters::class,
+                'edit' => VehicleEditUpdateFieldsetsParameters::class,
                 'show' => VehicleShowFieldsetsParameters::class
             ],
             'relationshipsManagerClasses' => [
