@@ -7,15 +7,9 @@ use Illuminate\Http\Request;
 
 class TypeEditUpdateController extends TypeCRUD
 {
-
     use CRUDEditUpdateTrait;
 
     public $allowedMethods = ['edit', 'update'];
-
-    public function getGenericParametersFile() : ? string
-    {
-        return config('vehicles.models.type.parametersFiles.create');
-    }
 
     public function edit(string $type)
     {

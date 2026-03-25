@@ -9,6 +9,7 @@ use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\KmreadingFieldsGro
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\TypeFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingCreateStoreFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingShowFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeEditUpdateFieldsetsParameters;
@@ -101,6 +102,7 @@ return [
             ],
             'parametersFiles' => [
                 'create' => KmreadingCreateStoreFieldsetsParameters::class,
+                'edit' => KmreadingEditUpdateFieldsetsParameters::class,
                 'show' => KmreadingShowFieldsetsParameters::class,
             ],
             'controllers' => [

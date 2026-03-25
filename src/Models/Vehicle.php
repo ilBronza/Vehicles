@@ -30,7 +30,8 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 //	use InteractsWithPriceTrait;
 
 	protected $casts = [
-		'registered_at' => 'date'
+		'registered_at' => 'date',
+		'current_km' => 'float',
 	];
 
 //	protected $casts = [
@@ -110,11 +111,6 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 	public function getCreateKmreadingUrl()
 	{
 		return route(config('vehicles.routePrefix') . 'vehicles.kmreadings.create', ['vehicle' => $this]);
-	}
-
-	public function getCurrentKmAttribute() : ?float
-	{
-		return $this->getLastKmreading()?->getKm();
 	}
 
 	public function type()

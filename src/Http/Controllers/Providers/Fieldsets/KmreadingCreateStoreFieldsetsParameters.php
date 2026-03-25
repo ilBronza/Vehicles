@@ -20,7 +20,7 @@ class KmreadingCreateStoreFieldsetsParameters extends FieldsetParametersFile
                     'vehicle_id' => [
                         'type' => 'select',
                         'multiple' => false,
-                        'rules' => 'string|nullable|exists:vehicles__vehicles,id',
+                        'rules' => 'string|nullable|exists:' . config('vehicles.models.vehicle.table') . ',id',
                         'relation' => 'vehicle'
                     ],
 
