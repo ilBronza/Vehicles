@@ -6,7 +6,7 @@ use IlBronza\Vehicles\Models\Traits\VehicleTypeMeasuresTrait;
 use IlBronza\Vehicles\Models\Vehicle;
 use Illuminate\Support\Collection;
 
-class Type extends VehiclePackageBaseModel
+class VehicleType extends VehiclePackageBaseModel
 {
 	use VehicleTypeMeasuresTrait;
 
@@ -14,7 +14,7 @@ class Type extends VehiclePackageBaseModel
 
 	public function vehicles()
 	{
-		return $this->hasMany(Vehicle::getProjectClassName());
+		return $this->hasMany(Vehicle::getProjectClassName(), 'type_id');
 	}
 
 	public function getVehicles() : Collection
@@ -69,5 +69,10 @@ class Type extends VehiclePackageBaseModel
 	public function getMassEmpty() : ? float
 	{
 		return $this->mass_empty;
+	}
+
+	public function getMorphClass()
+	{
+		return 'VehicleType';
 	}
 }

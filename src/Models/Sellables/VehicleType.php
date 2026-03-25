@@ -9,10 +9,10 @@ use IlBronza\Prices\Models\Traits\UpdatePricesOnSaveTrait;
 use IlBronza\Products\Models\Interfaces\SellableItemInterface;
 use IlBronza\Products\Models\Interfaces\SellableSupplierPriceCreatorBaseClass;
 use IlBronza\Products\Models\Traits\Sellable\InteractsWithSellableTrait;
-use IlBronza\Vehicles\Models\Type as IbType;
+use IlBronza\Vehicles\Models\VehicleType as IbVehicleType;
 use Illuminate\Support\Collection;
 
-class Type extends IbType implements SellableItemInterface, WithPriceInterface
+class VehicleType extends IbVehicleType implements SellableItemInterface, WithPriceInterface
 {
 	use HasCustomPricesTrait;
 	use InteractsWithSellableTrait;
@@ -38,7 +38,7 @@ class Type extends IbType implements SellableItemInterface, WithPriceInterface
 
 	public function getPriceCreator() : SellableSupplierPriceCreatorBaseClass
 	{
-		$class = config('vehicles.models.type.helpers.sellableSupplierPricesCreator');
+		$class = config('vehicles.models.vehicleType.helpers.sellableSupplierPricesCreator');
 
 		dd('sostituiamo con dei comandi?');
 
