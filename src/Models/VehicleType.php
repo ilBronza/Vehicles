@@ -2,12 +2,17 @@
 
 namespace IlBronza\Vehicles\Models;
 
+use IlBronza\Category\Traits\InteractsWithCategoryStandardMethodsTrait;
+use IlBronza\Category\Traits\InteractsWithCategoryTrait;
 use IlBronza\Vehicles\Models\Traits\VehicleTypeMeasuresTrait;
 use IlBronza\Vehicles\Models\Vehicle;
 use Illuminate\Support\Collection;
 
 class VehicleType extends VehiclePackageBaseModel
 {
+	use InteractsWithCategoryTrait;
+	use InteractsWithCategoryStandardMethodsTrait;
+
 	use VehicleTypeMeasuresTrait;
 
 	static $deletingRelationships = ['vehicles'];

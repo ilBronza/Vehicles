@@ -32,6 +32,9 @@ class VehiclePackageBaseModel extends PackagedBaseModel
 
 	public function getTable() : string
 	{
+		if( ! config("vehicles.models.{$this->getModelConfigPrefix()}.table"))
+			dd("vehicles.models.{$this->getModelConfigPrefix()}.table");
+
 		return config("vehicles.models.{$this->getModelConfigPrefix()}.table");
 	}
 
