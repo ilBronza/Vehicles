@@ -1,12 +1,11 @@
 <?php
 
-namespace IlBronza\Vehicles\Http\Controllers\Types;
+namespace IlBronza\Vehicles\Http\Controllers\VehicleTypes;
 
 use IlBronza\CRUD\Traits\CRUDIndexTrait;
 use IlBronza\CRUD\Traits\CRUDPlainIndexTrait;
-use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleCRUD;
 
-class TypeIndexController extends TypeCRUD
+class VehicleTypeIndexController extends VehicleTypeCRUD
 {
     use CRUDPlainIndexTrait;
     use CRUDIndexTrait;
@@ -15,7 +14,7 @@ class TypeIndexController extends TypeCRUD
 
     public function getIndexFieldsArray()
     {
-        return config('vehicles.models.type.fieldsGroupsFiles.index')::getTracedFieldsGroup();
+        return config('vehicles.models.vehicleType.fieldsGroupsFiles.index')::getTracedFieldsGroup();
     }
 
     public function getIndexElements()

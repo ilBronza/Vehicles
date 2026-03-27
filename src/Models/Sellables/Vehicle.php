@@ -14,7 +14,7 @@ class Vehicle extends IbVehicle implements SupplierInterface
 
 	public function getPossibleSellables() : Collection
 	{
-		$sellable = SellableCreatorHelper::getOrcreateSellableByTarget($this->getType());
+		$sellable = SellableCreatorHelper::getOrcreateSellableByTarget($this->getVehicleType());
 
 		return collect([$sellable]);
 	}

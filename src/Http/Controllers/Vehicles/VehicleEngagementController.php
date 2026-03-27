@@ -10,7 +10,7 @@ use IlBronza\Products\Models\Sellables\Sellable;
 use IlBronza\Products\Models\Sellables\SellableSupplier;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleDaysBaseFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleDaysFieldsGroupParametersHelper;
-use IlBronza\Vehicles\Models\Type;
+use IlBronza\Vehicles\Models\VehicleType;
 use Illuminate\Http\Request;
 
 use function array_keys;
@@ -62,9 +62,9 @@ class VehicleEngagementController extends VehicleCRUD
 	{
 		$this->sellableSuppliersIdsDictionary = [];
 
-		$vehicleTypesIds = Type::gpc()::select('id')->whereIn('name', ['bilico', 'autocarro'])->pluck('id');
+		$vehicleTypesIds = VehicleType::gpc()::select('id')->whereIn('name', ['bilico', 'autocarro'])->pluck('id');
 
-		$sellablesIds = Sellable::gpc()::whereIn('target_id', $vehicleTypesIds)->where('target_type', 'type')->pluck('id');
+		$sellablesIds = Sellable::gpc()::whereIn('target_id', $vehicleTypesIds)->where('target_type', 'VehicleType')->pluck('id');
 
 		$sellableSuppliers = SellableSupplier::gpc()::with('supplier.target')->whereIn('sellable_id', $sellablesIds)->get();
 
@@ -101,7 +101,7 @@ class VehicleEngagementController extends VehicleCRUD
 
 //			$vehicle = $vehicleParameters['vehicle'];
 
-			if(class_basename($sellableSupplier->getSellable()->getTarget()) != 'Type')
+			if(class_basename($sellableSupplier->getSellable()->getTarget()) != 'VehicleType')
 				continue;
 
 			$sellableSupplier->setRelation('orderrows', $vehicleParameters['orderrows']);

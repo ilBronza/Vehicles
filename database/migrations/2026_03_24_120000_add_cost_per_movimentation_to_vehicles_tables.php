@@ -11,7 +11,7 @@ return new class extends Migration
 	 */
 	public function up(): void
 	{
-		Schema::table(config('vehicles.models.type.table'), function (Blueprint $table) {
+		Schema::table(config('vehicles.models.vehicleType.table'), function (Blueprint $table) {
 			$table->decimal('cost_per_movimentation')->nullable()->after('cost_per_km');
 		});
 
@@ -25,7 +25,7 @@ return new class extends Migration
 	 */
 	public function down(): void
 	{
-		Schema::table(config('vehicles.models.type.table'), function (Blueprint $table) {
+		Schema::table(config('vehicles.models.vehicleType.table'), function (Blueprint $table) {
 			$table->dropColumn('cost_per_movimentation');
 		});
 

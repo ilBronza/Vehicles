@@ -2,9 +2,7 @@
 
 namespace IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets;
 
-use IlBronza\Form\Helpers\FieldsetsProvider\FieldsetParametersFile;
-
-class TypeSellableEditUpdateFieldsetsParameters extends TypeEditUpdateFieldsetsParameters
+class VehicleTypeSellableEditUpdateFieldsetsParameters extends VehicleTypeEditUpdateFieldsetsParameters
 {
     public function _getFieldsetsParameters() : array
     {

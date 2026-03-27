@@ -15,16 +15,6 @@ class VehicleShowController extends VehicleCRUD
 
     public $allowedMethods = ['show'];
 
-    public function getGenericParametersFile() : ? string
-    {
-        return config('vehicles.models.vehicle.parametersFiles.show');
-    }
-
-    public function getRelationshipsManagerClass()
-    {
-        return config("vehicles.models.{$this->configModelClassName}.relationshipsManagerClasses.show");
-    }
-
     public function setShowButtons()
     {
         $this->showButtons[] = $this->getModel()->getCreateKmreadingButton();
@@ -33,15 +23,6 @@ class VehicleShowController extends VehicleCRUD
     public function show(string $vehicle)
     {
         $vehicle = $this->findModel($vehicle);
-
-        if(! $supplier = $vehicle->getSupplier());
-            $supplier = SupplierCreatorHelper::getOrCreateSupplierFromTarget($vehicle);
-
-        $sellable = SellableCreatorHelper::getOrcreateSellableByTarget(
-            $vehicle->getType(), [], 'vehicle'
-        );
-
-        $sellableSupplier = SellableCreatorHelper::getOrCreateSellableSupplier($supplier, $sellable);
 
         return $this->_show($vehicle);
     }

@@ -17,7 +17,7 @@ return [
 				'create' => 'Registra lettura km',
 			],
 		],
-		'types' => [
+		'vehicleTypes' => [
 			'index' => 'Tipologie veicolo',
 			'create' => 'Nuova tipologia',
 			'store' => 'Salva tipologia',

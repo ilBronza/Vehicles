@@ -18,7 +18,7 @@ class VehicleCreateStoreFieldsetsParameters extends FieldsetParametersFile
                         'type' => 'select',
                         'multiple' => false,
                         'rules' => 'string|nullable|exists:vehicles__types,id',
-                        'relation' => 'type'
+                        'relation' => 'vehicleType'
                     ],
                 ],
                 'width' => ["1-3@l", '1-2@m']

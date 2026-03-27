@@ -13,7 +13,7 @@ class CreateVehiclesTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('vehicles.models.type.table'), function (Blueprint $table) {
+        Schema::create(config('vehicles.models.vehicleType.table'), function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('name');
 
@@ -54,7 +54,7 @@ class CreateVehiclesTable extends Migration
             $table->uuid('id')->primary();
 
             $table->string('type_id')->nullable();
-            $table->foreign('type_id')->references('id')->on(config('vehicles.models.type.table'));
+            $table->foreign('type_id')->references('id')->on(config('vehicles.models.vehicleType.table'));
 
             $table->nullableUuidMorphs('owner');
 
@@ -96,6 +96,6 @@ class CreateVehiclesTable extends Migration
     {
         Schema::dropIfExists(config('vehicles.models.kmreading.table'));
         Schema::dropIfExists(config('vehicles.models.vehicle.table'));
-        Schema::dropIfExists(config('vehicles.models.type.table'));
+        Schema::dropIfExists(config('vehicles.models.vehicleType.table'));
     }
 }

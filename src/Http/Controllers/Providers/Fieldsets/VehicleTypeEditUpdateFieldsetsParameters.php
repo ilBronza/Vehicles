@@ -4,7 +4,7 @@ namespace IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets;
 
 use IlBronza\Form\Helpers\FieldsetsProvider\FieldsetParametersFile;
 
-class TypeEditUpdateFieldsetsParameters extends FieldsetParametersFile
+class VehicleTypeEditUpdateFieldsetsParameters extends FieldsetParametersFile
 {
     public function _getFieldsetsParameters() : array
     {

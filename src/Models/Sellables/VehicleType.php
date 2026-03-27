@@ -20,7 +20,6 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 	use UpdatePricesOnSaveTrait;
 
 	protected $casts = [
-		//'distance_price' => CastFieldPrice::class . ':distancePrice,km',
 	];
 
 	public function getPriceFieldsForSellable() : array
@@ -28,6 +27,7 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 		return [
 			'cost_per_km',
 			'cost_per_movimentation',
+			'cost_per_day',
 		];
 	}
 
@@ -40,9 +40,7 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 	{
 		$class = config('vehicles.models.vehicleType.helpers.sellableSupplierPricesCreator');
 
-		dd('sostituiamo con dei comandi?');
-
-		dd($class);
+		throw new \Exception("asd");
 
 		return new $class;
 		return new VehiclePricesCreatorHelper;
@@ -58,4 +56,11 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 		return $this->getCompulsoryConfigByKey('parametersFiles.editSellable');
 	}
 
+	public function getSellableSupplierIndexRelations() : array
+	{
+		return [
+			'prices',
+			'supplier.target',
+		];
+	}
 }

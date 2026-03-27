@@ -4,7 +4,7 @@ namespace IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers;
 
 use IlBronza\CRUD\Providers\RelationshipsManager\RelationshipsManager;
 
-class TypeRelationManager Extends RelationshipsManager
+class VehicleTypeRelationManager Extends RelationshipsManager
 {
 	public  function getAllRelationsParameters() : array
 	{

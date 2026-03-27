@@ -44,7 +44,7 @@ class Vehicles implements RoutedObjectInterface
                 'name' => 'vehicles.types.list',
                 'icon' => 'gear',
                 'text' => 'vehicles::vehicles.types',
-                'href' => IbRouter::route($this, 'types.index')
+                'href' => IbRouter::route($this, 'vehicleTypes.index')
             ])
         );
 

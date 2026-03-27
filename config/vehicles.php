@@ -6,24 +6,26 @@ use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingEditUpdateController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingIndexController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingShowController;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\KmreadingFieldsGroupParametersFile;
-use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\TypeFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleFieldsGroupParametersFile;
+use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleOrderrowsFieldsGroupParametersFile;
+use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleQuotationrowsFieldsGroupParametersFile;
+use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleTypeFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingShowFieldsetsParameters;
-use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeCreateStoreFieldsetsParameters;
-use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeEditUpdateFieldsetsParameters;
-use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\TypeSellableEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleShowFieldsetsParameters;
-use IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers\TypeRelationManager;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeCreateStoreFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeEditUpdateFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeSellableEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers\VehicleRelationManager;
-use IlBronza\Vehicles\Http\Controllers\Types\TypeCreateStoreController;
-use IlBronza\Vehicles\Http\Controllers\Types\TypeDestroyController;
-use IlBronza\Vehicles\Http\Controllers\Types\TypeEditUpdateController;
-use IlBronza\Vehicles\Http\Controllers\Types\TypeIndexController;
-use IlBronza\Vehicles\Http\Controllers\Types\TypeShowController;
+use IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers\VehicleTypeRelationManager;
+use IlBronza\Vehicles\Http\Controllers\VehicleTypes\VehicleTypeCreateStoreController;
+use IlBronza\Vehicles\Http\Controllers\VehicleTypes\VehicleTypeDestroyController;
+use IlBronza\Vehicles\Http\Controllers\VehicleTypes\VehicleTypeEditUpdateController;
+use IlBronza\Vehicles\Http\Controllers\VehicleTypes\VehicleTypeIndexController;
+use IlBronza\Vehicles\Http\Controllers\VehicleTypes\VehicleTypeShowController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleCreateStoreController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleDestroyController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleEditUpdateController;
@@ -31,8 +33,8 @@ use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleEngagementController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleIndexController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleShowController;
 use IlBronza\Vehicles\Models\Kmreading;
-use IlBronza\Vehicles\Models\Type;
 use IlBronza\Vehicles\Models\Vehicle;
+use IlBronza\Vehicles\Models\VehicleType;
 
 return [
     'routePrefix' => 'ibVehicles.',
@@ -44,29 +46,39 @@ return [
     'enabled' => true,
 
     'models' => [
-        'type' => [
-            'class' => Type::class,
+        'orderrow' => [
+            'fieldsGroupsFiles' => [
+                'index' => VehicleOrderrowsFieldsGroupParametersFile::class,
+            ]
+        ],
+        'quotationrow' => [
+            'fieldsGroupsFiles' => [
+                'index' => VehicleQuotationrowsFieldsGroupParametersFile::class,
+            ]
+        ],
+        'vehicleType' => [
+            'class' => VehicleType::class,
             'table' => 'vehicles__types',
             'fieldsGroupsFiles' => [
-                'index' => TypeFieldsGroupParametersFile::class
+                'index' => VehicleTypeFieldsGroupParametersFile::class
             ],
             'relationshipsManagerClasses' => [
-                'show' => TypeRelationManager::class
+                'show' => VehicleTypeRelationManager::class
             ],
             'parametersFiles' => [
-                'create' => TypeCreateStoreFieldsetsParameters::class,
-                'edit' => TypeEditUpdateFieldsetsParameters::class,
-                'editSellable' => TypeSellableEditUpdateFieldsetsParameters::class,
-                'show' => TypeEditUpdateFieldsetsParameters::class
+                'create' => VehicleTypeCreateStoreFieldsetsParameters::class,
+                'edit' => VehicleTypeEditUpdateFieldsetsParameters::class,
+                'editSellable' => VehicleTypeSellableEditUpdateFieldsetsParameters::class,
+                'show' => VehicleTypeEditUpdateFieldsetsParameters::class
             ],
             'controllers' => [
-                'index' => TypeIndexController::class,
-                'create' => TypeCreateStoreController::class,
-                'store' => TypeCreateStoreController::class,
-                'show' => TypeShowController::class,
-                'edit' => TypeEditUpdateController::class,
-                'update' => TypeEditUpdateController::class,
-                'destroy' => TypeDestroyController::class,
+                'index' => VehicleTypeIndexController::class,
+                'create' => VehicleTypeCreateStoreController::class,
+                'store' => VehicleTypeCreateStoreController::class,
+                'show' => VehicleTypeShowController::class,
+                'edit' => VehicleTypeEditUpdateController::class,
+                'update' => VehicleTypeEditUpdateController::class,
+                'destroy' => VehicleTypeDestroyController::class,
             ]
         ],
         'vehicle' => [
@@ -78,10 +90,11 @@ return [
             'parametersFiles' => [
                 'create' => VehicleCreateStoreFieldsetsParameters::class,
                 'edit' => VehicleEditUpdateFieldsetsParameters::class,
+                'editSellable' => VehicleEditUpdateFieldsetsParameters::class,
                 'show' => VehicleShowFieldsetsParameters::class
             ],
             'relationshipsManagerClasses' => [
-                'show' => VehicleRelationManager::class
+                'show' => VehicleRelationManager::class,
             ],
             'controllers' => [
 	            'engagement' => VehicleEngagementController::class,

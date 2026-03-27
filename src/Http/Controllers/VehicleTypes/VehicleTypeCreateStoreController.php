@@ -1,12 +1,12 @@
 <?php
 
-namespace IlBronza\Vehicles\Http\Controllers\Types;
+namespace IlBronza\Vehicles\Http\Controllers\VehicleTypes;
 
 use IlBronza\CRUD\Traits\CRUDCreateStoreTrait;
 use IlBronza\CRUD\Traits\CRUDRelationshipTrait;
 use IlBronza\CRUD\Traits\CRUDShowTrait;
 
-class TypeCreateStoreController extends TypeCRUD
+class VehicleTypeCreateStoreController extends VehicleTypeCRUD
 {
     use CRUDCreateStoreTrait;
     use CRUDShowTrait;
@@ -16,18 +16,18 @@ class TypeCreateStoreController extends TypeCRUD
 
     public function getGenericParametersFile() : ? string
     {
-        return config('vehicles.models.type.parametersFiles.create');
+        return config('vehicles.models.vehicleType.parametersFiles.create');
     }
 
     public function getRelationshipsManagerClass()
     {
-        return config("products.models.{$this->configModelClassName}.relationshipsManagerClasses.show");
+        return config("vehicles.models.{$this->configModelClassName}.relationshipsManagerClasses.show");
     }
 
-    public function show(string $type)
+    public function show(string $vehicleType)
     {
-        $type = $this->findModel($type);
+        $vehicleType = $this->findModel($vehicleType);
 
-        return $this->_show($type);
+        return $this->_show($vehicleType);
     }
 }

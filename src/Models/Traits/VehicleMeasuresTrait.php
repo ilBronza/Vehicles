@@ -8,22 +8,22 @@ trait VehicleMeasuresTrait
 {
 	public function getMaximumWeightKg() : ? float
 	{
-		return $this->getType()?->getMaximumWeightKg();
+		return $this->getVehicleType()?->getMaximumWeightKg();
 	}
 
 	public function getSuggestedMaximumWeightKg() : ? float
 	{
-		return $this->getType()?->getSuggestedMaximumWeightKg();
+		return $this->getVehicleType()?->getSuggestedMaximumWeightKg();
 	}
 
 	public function getMaximumVolumeMc() : ? float
 	{
-		return $this->getType()?->getMaximumVolumeMc();
+		return $this->getVehicleType()?->getMaximumVolumeMc();
 	}
 
 	public function getSuggestedMaximumVolumeMc() : ? float
 	{
-		return $this->getType()?->getSuggestedMaximumVolumeMc();
+		return $this->getVehicleType()?->getSuggestedMaximumVolumeMc();
 	}
 
 

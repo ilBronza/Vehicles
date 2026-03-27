@@ -15,7 +15,7 @@ use IlBronza\Schedules\Traits\InteractsWithSchedule;
 use IlBronza\Vehicles\Helpers\VehiclePricesCreatorHelper;
 use IlBronza\Vehicles\Models\Kmreading;
 use IlBronza\Vehicles\Models\Traits\VehicleMeasuresTrait;
-use IlBronza\Vehicles\Models\Type;
+use IlBronza\Vehicles\Models\VehicleType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Collection;
@@ -31,7 +31,6 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 
 	protected $casts = [
 		'registered_at' => 'date',
-		'current_km' => 'float',
 	];
 
 //	protected $casts = [
@@ -113,14 +112,14 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 		return route(config('vehicles.routePrefix') . 'vehicles.kmreadings.create', ['vehicle' => $this]);
 	}
 
-	public function type()
+	public function vehicleType()
 	{
-		return $this->belongsTo(Type::getProjectClassName());
+		return $this->belongsTo(VehicleType::gpc(), 'type_id');
 	}
 
-	public function getType() : ?Type
+	public function getVehicleType() : ?VehicleType
 	{
-		return $this->type;
+		return $this->vehicleType;
 	}
 
 	public function getLastKmreading() : ?Kmreading
@@ -143,17 +142,17 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 
 	public function getPassengersCapacity() : ?int
 	{
-		return $this->getType()->getPassengersCapacity();
+		return $this->getVehicleType()->getPassengersCapacity();
 	}
 
-	public function scopeByType($query, string|array $type)
+	public function scopeByVehicleType($query, string|array $vehicleType)
 	{
-		if(is_string($type))
-			$type = [$type];
+		if(is_string($vehicleType))
+			$vehicleType = [$vehicleType];
 
-		$query->whereHas('type', function ($query) use ($type)
+		$query->whereHas('vehicleType', function ($query) use ($vehicleType)
 		{
-			$query->whereIn('name', $type);
+			$query->whereIn('name', $vehicleType);
 		});
 	}
 
@@ -167,12 +166,12 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 	//'deprecato, usare getLoadingVolume'
 //	public function getVolumeMc()
 //	{
-////		return $this->getType()->getVolumeMc();
+////		return $this->getVehicleType()->getVolumeMc();
 //	}
 
 	// public function getLoadingVolumeCubicMeters()
 	// {
-	// 	return $this->getType()->getLoadingVolumeCubicMeters();
+	// 	return $this->getVehicleType()->getLoadingVolumeCubicMeters();
 	// }
 
 	public function getRCAStartingValue()// : Carbon

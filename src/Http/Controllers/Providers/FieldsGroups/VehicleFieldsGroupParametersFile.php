@@ -19,7 +19,7 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
                 'plate' => 'flat',
                 'slug' => 'flat',
 
-                'type' => [
+                'vehicleType' => [
                     'type' => 'links.link',
                     'function' => 'getShowUrl',
                     'textParameter' => 'name',
@@ -34,27 +34,27 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
                     'width' => '20em'
                 ],
 
-                'type.producer' => 'flat',
-                'type.vehicle_type' => 'flat',
-                'type.passengers' => [
+                'vehicleType.producer' => 'flat',
+                'vehicleType.vehicle_type' => 'flat',
+                'vehicleType.passengers' => [
                     'type' => 'flat',
                     'width' => '4em'
                 ],
-                'type.fuels' => 'flat',
-                'type.external_length' => [
+                'vehicleType.fuels' => 'flat',
+                'vehicleType.external_length' => [
                     'type' => 'flat',
                     'width' => '4em'
                 ],
-                'type.external_width' => [
+                'vehicleType.external_width' => [
                     'type' => 'flat',
                     'width' => '4em'
                 ],
-                'type.external_height' => [
+                'vehicleType.external_height' => [
                     'type' => 'flat',
                     'width' => '4em'
                 ],
-                'type.mass_empty' => 'flat',
-                'type.mass_max_loading' => 'flat',
+                'vehicleType.mass_empty' => 'flat',
+                'vehicleType.mass_max_loading' => 'flat',
 
                 'name' => [
                     'type' => 'flat',

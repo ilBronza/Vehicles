@@ -18,7 +18,7 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                         'type' => 'select',
                         'multiple' => false,
                         'rules' => 'string|nullable|exists:vehicles__types,id',
-                        'relation' => 'type'
+                        'relation' => 'vehicleType'
                     ],
                 ],
 	            'width' => ['large']

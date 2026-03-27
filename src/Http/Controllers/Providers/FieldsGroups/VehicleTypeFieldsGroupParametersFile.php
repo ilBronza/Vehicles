@@ -4,7 +4,7 @@ namespace IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups;
 
 use IlBronza\Datatables\Providers\FieldsGroupParametersFile;
 
-class TypeFieldsGroupParametersFile extends FieldsGroupParametersFile
+class VehicleTypeFieldsGroupParametersFile extends FieldsGroupParametersFile
 {
 	static function getFieldsGroup() : array
 	{

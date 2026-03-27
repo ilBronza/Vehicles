@@ -34,14 +34,14 @@ Route::group(['prefix' => 'vehicles'], function()
 
 Route::group(['prefix' => 'types'], function()
 {
-	Route::get('', [Vehicles::getController('type', 'index'), 'index'])->name('types.index');
-	Route::get('create', [Vehicles::getController('type', 'create'), 'create'])->name('types.create');
-	Route::post('', [Vehicles::getController('type', 'store'), 'store'])->name('types.store');
-	Route::get('{type}', [Vehicles::getController('type', 'show'), 'show'])->name('types.show');
-	Route::get('{type}/edit', [Vehicles::getController('type', 'edit'), 'edit'])->name('types.edit');
-	Route::put('{type}', [Vehicles::getController('type', 'edit'), 'update'])->name('types.update');
+	Route::get('', [Vehicles::getController('vehicleType', 'index'), 'index'])->name('vehicleTypes.index');
+	Route::get('create', [Vehicles::getController('vehicleType', 'create'), 'create'])->name('vehicleTypes.create');
+	Route::post('', [Vehicles::getController('vehicleType', 'store'), 'store'])->name('vehicleTypes.store');
+	Route::get('{vehicleType}', [Vehicles::getController('vehicleType', 'show'), 'show'])->name('vehicleTypes.show');
+	Route::get('{vehicleType}/edit', [Vehicles::getController('vehicleType', 'edit'), 'edit'])->name('vehicleTypes.edit');
+	Route::put('{vehicleType}', [Vehicles::getController('vehicleType', 'edit'), 'update'])->name('vehicleTypes.update');
 
-	Route::delete('{type}/delete', [Vehicles::getController('type', 'destroy'), 'destroy'])->name('types.destroy');
+	Route::delete('{vehicleType}/delete', [Vehicles::getController('vehicleType', 'destroy'), 'destroy'])->name('vehicleTypes.destroy');
 });
 
 Route::group(['prefix' => 'kmreadings'], function()
