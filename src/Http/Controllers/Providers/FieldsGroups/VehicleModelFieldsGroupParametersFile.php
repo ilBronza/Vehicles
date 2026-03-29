@@ -8,6 +8,8 @@ class VehicleModelFieldsGroupParametersFile extends FieldsGroupParametersFile
 {
 	static function getFieldsGroup() : array
 	{
+		$narrow = ['type' => 'flat', 'width' => '4em'];
+
 		return [
 			'translationPrefix' => 'vehicles::fields',
 			'fields' =>
@@ -17,18 +19,25 @@ class VehicleModelFieldsGroupParametersFile extends FieldsGroupParametersFile
 				'mySelfSee' => 'links.see',
 				'brand' => 'flat',
 				'name' => 'flat',
+				'vehicleType.name' => 'flat',
 				'vehicles_count' => 'flat',
 				'passengers' => 'flat',
 				'license_needed' => 'flat',
-				'external_length' => 'flat',
-				'external_width' => 'flat',
-				'external_height' => 'flat',
+				'sizes_marching_external_length' => $narrow,
+				'sizes_marching_external_width' => $narrow,
+				'sizes_marching_external_height' => $narrow,
+				'sizes_marching_internal_length' => $narrow,
+				'sizes_marching_internal_width' => $narrow,
+				'sizes_marching_internal_height' => $narrow,
 				'mass_empty' => 'flat',
-				'internal_length' => 'flat',
-				'internal_width' => 'flat',
-				'internal_height' => 'flat',
+				'sizes_functioning_external_length' => $narrow,
+				'sizes_functioning_external_width' => $narrow,
+				'sizes_functioning_external_height' => $narrow,
+				'sizes_functioning_internal_length' => $narrow,
+				'sizes_functioning_internal_width' => $narrow,
+				'sizes_functioning_internal_height' => $narrow,
+				'sizes_functioning_internal_volume_mq' => $narrow,
 				'mass_max_loading' => 'flat',
-				'internal_volume_mq' => 'flat',
 				'mySelfDelete' => 'links.delete'
 			]
 		];

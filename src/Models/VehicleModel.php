@@ -16,6 +16,11 @@ class VehicleModel extends VehiclePackageBaseModel
 		return $this->hasMany(Vehicle::getProjectClassName(), 'vehicle_model_id');
 	}
 
+	public function vehicleType()
+	{
+		return $this->belongsTo(VehicleType::gpc(), 'vehicle_type');
+	}
+
 	public function getVehicles() : Collection
 	{
 		return $this->vehicles;
@@ -33,7 +38,13 @@ class VehicleModel extends VehiclePackageBaseModel
 
 	public function getLoadingVolumeCubicMeters() : ? float
 	{
-		return $this->getInternalWidth() * $this->getInternalLength() * $this->getInternalHeight() / (1000 * 1000 * 1000);
+		$w = $this->getFunctioningInternalWidth();
+		$l = $this->getFunctioningInternalLength();
+		$h = $this->getFunctioningInternalHeight();
+		if ($w === null || $l === null || $h === null)
+			return null;
+
+		return $w * $l * $h / (1000 * 1000 * 1000);
 	}
 
 	public function getPassengersCapacity() : ? int
@@ -43,17 +54,17 @@ class VehicleModel extends VehiclePackageBaseModel
 
 	public function getExternalWidth() : ? float
 	{
-		return $this->external_width;
+		return $this->getMarchingExternalWidth();
 	}
 
 	public function getExternalLength() : ? float
 	{
-		return $this->external_length;
+		return $this->getMarchingExternalLength();
 	}
 
 	public function getExternalHeight() : ? float
 	{
-		return $this->external_height;
+		return $this->getMarchingExternalHeight();
 	}
 
 	public function getMassEmpty() : ? float

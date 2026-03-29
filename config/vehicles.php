@@ -49,6 +49,22 @@ use IlBronza\Vehicles\Models\Sellables\VehicleType;
 return [
     'routePrefix' => 'ibVehicles.',
 
+    'defaultRoles' => [
+        'administrator',
+        'vehicles',
+    ],
+
+    'routeRoles' => [
+        'vehicles.index' => [
+            'administrator',
+            'vehicles',
+        ],
+        'vehicles.drivers.index' => [
+            'administrator',
+            'drivers',
+        ],
+    ],
+
     'datatableFieldWidths' => [
         'datatableFieldVehicle' => '10em'
     ],

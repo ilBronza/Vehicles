@@ -18,6 +18,11 @@ class VehicleType extends VehiclePackageBaseModel
 		return $this->hasMany(Vehicle::getProjectClassName(), 'type_id');
 	}
 
+	public function vehicleModels()
+	{
+		return $this->hasMany(VehicleModel::getProjectClassName(), 'vehicle_type');
+	}
+
 	public function getVehicles() : Collection
 	{
 		return $this->vehicles;

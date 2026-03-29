@@ -3,6 +3,7 @@
 namespace IlBronza\Vehicles;
 
 use IlBronza\CRUD\Traits\IlBronzaPackages\IlBronzaServiceProviderPackagesTrait;
+use IlBronza\Vehicles\Http\Middleware\VehiclesRoleMiddleware;
 use IlBronza\Vehicles\Models\Vehicle;
 use IlBronza\Vehicles\Models\VehicleModel;
 use IlBronza\Vehicles\Models\VehicleType;
@@ -30,6 +31,10 @@ class VehiclesServiceProvider extends ServiceProvider
 		// $this->loadViewsFrom(__DIR__.'/../resources/views', 'ilbronza');
 		$this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 		$this->loadRoutesFrom(__DIR__ . '/../routes/vehicles.php');
+
+        $router = $this->app['router'];
+
+        $router->aliasMiddleware('vehicles.roles', VehiclesRoleMiddleware::class);
 
 		// Publishing is only necessary when using the CLI.
 		if ($this->app->runningInConsole())

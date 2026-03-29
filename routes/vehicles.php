@@ -3,7 +3,7 @@
 use IlBronza\Vehicles\Vehicles;
 
 Route::group([
-	'middleware' => ['web', 'auth'],
+	'middleware' => ['web', 'auth', 'vehicles.roles'],
 	'prefix' => 'vehicles-management',
 	'as' => config('vehicles.routePrefix')
 	],
