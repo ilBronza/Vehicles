@@ -44,6 +44,18 @@ Route::group(['prefix' => 'types'], function()
 	Route::delete('{vehicleType}/delete', [Vehicles::getController('vehicleType', 'destroy'), 'destroy'])->name('vehicleTypes.destroy');
 });
 
+Route::group(['prefix' => 'models'], function()
+{
+	Route::get('', [Vehicles::getController('vehicleModel', 'index'), 'index'])->name('vehicleModels.index');
+	Route::get('create', [Vehicles::getController('vehicleModel', 'create'), 'create'])->name('vehicleModels.create');
+	Route::post('', [Vehicles::getController('vehicleModel', 'store'), 'store'])->name('vehicleModels.store');
+	Route::get('{vehicleModel}', [Vehicles::getController('vehicleModel', 'show'), 'show'])->name('vehicleModels.show');
+	Route::get('{vehicleModel}/edit', [Vehicles::getController('vehicleModel', 'edit'), 'edit'])->name('vehicleModels.edit');
+	Route::put('{vehicleModel}', [Vehicles::getController('vehicleModel', 'update'), 'update'])->name('vehicleModels.update');
+
+	Route::delete('{vehicleModel}/delete', [Vehicles::getController('vehicleModel', 'destroy'), 'destroy'])->name('vehicleModels.destroy');
+});
+
 Route::group(['prefix' => 'kmreadings'], function()
 {
 	Route::get('', [Vehicles::getController('kmreading', 'index'), 'index'])->name('kmreadings.index');

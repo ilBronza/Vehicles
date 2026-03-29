@@ -8,6 +8,7 @@ return [
 	'km_liter_highway' => 'Km/L autostrada',
 	'name' => 'Nome',
     'vehicles_count' => 'Numero veicoli',
+    'vehicle_models_count' => 'Numero modelli',
     'passengers' => 'Passeggeri',
     'license_needed' => 'Patente tipo',
     'external_length' => 'Lung esterna',
@@ -23,8 +24,12 @@ return [
     'registered_at' => 'Registrato il',
     'vehicle_id' => 'Veicolo',
     'user_id' => 'Operatore',
-	'type_id' => 'Modello',
-	'vehicleType' => 'Modello',
+	'type_id' => 'Tipologia d\'uso',
+	'vehicle_model_id' => 'Modello commerciale',
+	'vehicleType' => 'Tipologia d\'uso',
+	'vehicleModel' => 'Modello',
+	'brand' => 'Marchio',
+	'vehicle_type_id' => 'Tipologia',
 	'owner' => 'Proprietario',
 	'cost_per_km' => '€/km',
 	'cost_per_movimentation' => '€/movimentazione',
@@ -44,9 +49,16 @@ return [
     'vehicleType.mass_empty' => 'Massa a vuoto',
     'vehicleType.mass_max_loading' => 'Massimo carico',
 
-
-
-
+    'vehicleModel.brand' => 'Marchio',
+    'vehicleModel.vehicle_type' => 'Variante',
+    'vehicleModel.passengers' => 'Passeggeri',
+    'vehicleModel.fuels' => 'Carburanti',
+    'vehicleModel.external_length' => 'Lunghezza',
+    'vehicleModel.external_width' => 'Larghezza',
+    'vehicleModel.external_height' => 'Altezza',
+    'vehicleModel.mass_empty' => 'Massa a vuoto',
+    'vehicleModel.mass_max_loading' => 'Massimo carico',
+    'vehicleType.name' => 'Tipologia',
 
 
 

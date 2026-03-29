@@ -101,7 +101,7 @@ class VehicleEngagementController extends VehicleCRUD
 
 //			$vehicle = $vehicleParameters['vehicle'];
 
-			if(class_basename($sellableSupplier->getSellable()->getTarget()) != 'VehicleType')
+			if (class_basename($sellableSupplier->getSellable()->getTarget()) != 'VehicleType')
 				continue;
 
 			$sellableSupplier->setRelation('orderrows', $vehicleParameters['orderrows']);

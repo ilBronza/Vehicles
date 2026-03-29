@@ -50,6 +50,15 @@ class Vehicles implements RoutedObjectInterface
 
 	    $vehiclesManagerButton->addChild(
 		    $menu->createButton([
+			    'name' => 'vehicles.models.list',
+			    'icon' => 'truck-pickup',
+			    'text' => 'vehicles::vehicles.models',
+			    'href' => IbRouter::route($this, 'vehicleModels.index')
+		    ])
+	    );
+
+	    $vehiclesManagerButton->addChild(
+		    $menu->createButton([
 			    'name' => 'vehicles.kmreadings.list',
 			    'icon' => 'bookmark',
 			    'text' => 'vehicles::vehicles.kmreadings',

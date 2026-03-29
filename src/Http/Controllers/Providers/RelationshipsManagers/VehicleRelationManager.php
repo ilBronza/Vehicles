@@ -19,6 +19,7 @@ class VehicleRelationManager Extends RelationshipsManager
 		}
 
 		$relations['kmreadings'] = config('vehicles.models.kmreading.controllers.index');
+		$relations['vehicleModel'] = config('vehicles.models.vehicleModel.controllers.show');
 		$relations['vehicleType'] = config('vehicles.models.vehicleType.controllers.show');
 		// $relations['schedules'] = config('schedules.models.schedule.controllers.index');
 		// $relations['scheduledNotifications'] = config('schedules.models.scheduledNotification.controllers.index');

@@ -15,6 +15,7 @@ use IlBronza\Schedules\Traits\InteractsWithSchedule;
 use IlBronza\Vehicles\Helpers\VehiclePricesCreatorHelper;
 use IlBronza\Vehicles\Models\Kmreading;
 use IlBronza\Vehicles\Models\Traits\VehicleMeasuresTrait;
+use IlBronza\Vehicles\Models\VehicleModel;
 use IlBronza\Vehicles\Models\VehicleType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
@@ -112,9 +113,19 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 		return route(config('vehicles.routePrefix') . 'vehicles.kmreadings.create', ['vehicle' => $this]);
 	}
 
+	public function vehicleModel()
+	{
+		return $this->belongsTo(VehicleModel::gpc(), 'vehicle_model_id');
+	}
+
 	public function vehicleType()
 	{
 		return $this->belongsTo(VehicleType::gpc(), 'type_id');
+	}
+
+	public function getVehicleModel() : ?VehicleModel
+	{
+		return $this->vehicleModel;
 	}
 
 	public function getVehicleType() : ?VehicleType
@@ -142,7 +153,7 @@ class Vehicle extends VehiclePackageBaseModel //implements SellableItemInterface
 
 	public function getPassengersCapacity() : ?int
 	{
-		return $this->getVehicleType()->getPassengersCapacity();
+		return $this->getVehicleModel()?->getPassengersCapacity();
 	}
 
 	public function scopeByVehicleType($query, string|array $vehicleType)

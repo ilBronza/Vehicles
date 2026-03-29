@@ -26,6 +26,15 @@ return [
 			'update' => 'Aggiorna tipologia',
 			'destroy' => 'Elimina tipologia',
 		],
+		'vehicleModels' => [
+			'index' => 'Modelli veicolo',
+			'create' => 'Nuovo modello',
+			'store' => 'Salva modello',
+			'show' => 'Dettaglio modello',
+			'edit' => 'Modifica modello',
+			'update' => 'Aggiorna modello',
+			'destroy' => 'Elimina modello',
+		],
 		'kmreadings' => [
 			'index' => 'Letture chilometriche',
 			'create' => 'Nuova lettura km',

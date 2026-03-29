@@ -19,9 +19,6 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 	use InteractsWithPriceTrait;
 	use UpdatePricesOnSaveTrait;
 
-	protected $casts = [
-	];
-
 	public function getPriceFieldsForSellable() : array
 	{
 		return [
@@ -36,14 +33,11 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 		return $this->vehicles()->with('supplier')->get()->pluck('supplier')->filter();
 	}
 
-	public function getPriceCreator() : SellableSupplierPriceCreatorBaseClass
+	public function getPriceCreator() : ?SellableSupplierPriceCreatorBaseClass
 	{
 		$class = config('vehicles.models.vehicleType.helpers.sellableSupplierPricesCreator');
 
-		throw new \Exception("asd");
-
-		return new $class;
-		return new VehiclePricesCreatorHelper;
+		return $class ? new $class : new \IlBronza\Vehicles\Helpers\VehiclePricesCreatorHelper;
 	}
 
 	public function mustAutomaticallyUpdatePrices() : bool

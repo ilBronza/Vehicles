@@ -2,7 +2,7 @@
 
 namespace IlBronza\Vehicles\Models\Traits;
 
-trait VehicleTypeMeasuresTrait
+trait VehicleModelMeasuresTrait
 {
 	public function getMaximumWeightKg() : ? float
 	{
@@ -43,8 +43,4 @@ trait VehicleTypeMeasuresTrait
 	{
 		return $this->internal_height;
 	}
-
-
-
-
 }

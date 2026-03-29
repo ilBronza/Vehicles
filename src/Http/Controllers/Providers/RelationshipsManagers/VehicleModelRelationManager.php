@@ -4,14 +4,14 @@ namespace IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers;
 
 use IlBronza\CRUD\Providers\RelationshipsManager\RelationshipsManager;
 
-class VehicleTypeRelationManager Extends RelationshipsManager
+class VehicleModelRelationManager Extends RelationshipsManager
 {
-	public  function getAllRelationsParameters() : array
+	public function getAllRelationsParameters() : array
 	{
 		return [
 			'show' => [
 				'relations' => [
-					'vehicles' => config('vehicles.models.vehicle.controllers.index'),
+					'vehicles' => config('vehicles.models.vehicle.controllers.index')
 				]
 			]
 		];

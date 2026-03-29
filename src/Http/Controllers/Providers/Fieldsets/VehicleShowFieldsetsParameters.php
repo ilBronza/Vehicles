@@ -14,6 +14,12 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                 'fields' => [
                     'name' => ['text' => 'string|required'],
                     'plate' => ['text' => 'string|required'],
+                    'vehicle_model_id' => [
+                        'type' => 'select',
+                        'multiple' => false,
+                        'rules' => 'string|nullable|exists:vehicles__vehicle_models,id',
+                        'relation' => 'vehicleModel'
+                    ],
                     'type_id' => [
                         'type' => 'select',
                         'multiple' => false,
