@@ -24,6 +24,7 @@ return new class extends Migration
 			$table->decimal('km_liter_highway')->nullable()->comment('km per liter highway');
 			$table->decimal('cost_per_km')->nullable();
 			$table->decimal('cost_per_movimentation')->nullable();
+			$table->decimal('cost_per_day')->nullable();
 			$table->string('fuels')->nullable();
 			$table->string('vehicle_type')->nullable();
 			$table->decimal('external_length')->nullable()->comment('millimeters');
@@ -86,6 +87,7 @@ return new class extends Migration
 			$table->text('description')->nullable();
 			$table->decimal('cost_per_km')->nullable()->comment('EURO per km');
 			$table->decimal('cost_per_movimentation')->nullable();
+			$table->decimal('cost_per_day')->nullable();
 			$table->timestamp('registered_at')->nullable();
 			$table->unsignedInteger('initial_km')->nullable();
 			$table->decimal('current_km', 10, 1)->nullable();

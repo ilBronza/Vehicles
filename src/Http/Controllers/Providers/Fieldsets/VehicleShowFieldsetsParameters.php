@@ -13,6 +13,7 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                 'translationPrefix' => 'vehicles::fields',
                 'fields' => [
                     'name' => ['text' => 'string|required'],
+                    'slug' => ['text' => 'string|nullable'],
                     'plate' => ['text' => 'string|required'],
                     'vehicle_model_id' => [
                         'type' => 'select',
@@ -29,23 +30,43 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                 ],
 	            'width' => ['large']
             ],
+            'subjects' => [
+                'translationPrefix' => 'vehicles::fields',
+                'fields' => [
+                    'owner_name' => [
+                        'type' => 'text',
+                        'rules' => 'string|nullable',
+                        'vertical' => true
+                    ],
+                    'user_name' => [
+                        'type' => 'text',
+                        'rules' => 'string|nullable',
+                        'vertical' => true
+                    ],
+                ],
+                'width' => ['large']
+            ],
             'costs' => [
                 'translationPrefix' => 'vehicles::fields',
                 'fields' => [
-                    'cost_per_km' => ['number' => 'numeric|nullable|min:0'],
-                    'cost_per_movimentation' => ['number' => 'numeric|nullable|min:0'],
+                    'cost_per_km' => [
+                        'type' => 'number',
+                        'rules' => 'numeric|nullable|min:0',
+                        'vertical' => true
+                    ],
+                    'cost_per_movimentation' => [
+                        'type' => 'number',
+                        'rules' => 'numeric|nullable|min:0',
+                        'vertical' => true
+                    ],
+                    'cost_per_day' => [
+                        'type' => 'number',
+                        'rules' => 'numeric|nullable|min:0',
+                        'vertical' => true
+                    ],
                 ],
-                'width' => ['medium']
+                'width' => ['small']
             ],
-            'registration' => [
-                'translationPrefix' => 'vehicles::fields',
-                'fields' => [
-                    'registered_at' => ['date' => 'date|nullable'],
-                    'initial_km' => ['number' => 'numeric|nullable|min:0'],
-                    'current_km' => ['number' => 'numeric|nullable|min:0']
-                ],
-	            'width' => ['medium']
-            ]
         ];
     }
 }

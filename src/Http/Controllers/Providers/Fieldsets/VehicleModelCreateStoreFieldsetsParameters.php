@@ -10,10 +10,14 @@ class VehicleModelCreateStoreFieldsetsParameters extends FieldsetParametersFile
 	{
 		return [
 			'anagrafica' => [
-				'translationPrefix' => 'vehicles::vehicleTypes',
+				'translationPrefix' => 'vehicles::fields',
 				'fields' => [
 					'brand' => ['text' => 'string|nullable'],
-					'name' => ['text' => 'string|required'],
+					'name' => [
+						'type' => 'text',
+						'rules' => 'string|required',
+						'label' => trans('vehicles::fields.vehicleType.model')
+					],
 					'vehicle_type' => [
 						'type' => 'select',
 						'multiple' => false,
@@ -22,36 +26,61 @@ class VehicleModelCreateStoreFieldsetsParameters extends FieldsetParametersFile
 					],
 					'passengers' => ['number' => 'integer|nullable|min:0|max:64'],
 					'license_needed' => ['text' => 'string|nullable'],
+					'mass_empty' => ['number' => 'numeric|nullable|min:0'],
+					'mass_max_loading' => ['number' => 'numeric|nullable|min:0'],
 					'fuels' => ['text' => 'string|nullable'],
 				],
 				'width' => ["1-3@l", '1-2@m']
 			],
 			'misureMarcia' => [
 				'translationPrefix' => 'vehicles::fields',
-				'fields' => [
-					'sizes_marching_external_length' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_marching_external_width' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_marching_external_height' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_marching_internal_length' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_marching_internal_width' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_marching_internal_height' => ['number' => 'numeric|nullable|min:0'],
-					'mass_empty' => ['number' => 'numeric|nullable|min:0'],
+				'fieldsets' => [
+					'interne' => [
+						'translationPrefix' => 'vehicles::fields',
+						'fields' => [
+							'sizes_marching_internal_length' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_marching_internal_width' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_marching_internal_height' => ['number' => 'numeric|nullable|min:0'],
+						],
+						'width' => ['large']
+					],
+					'esterne' => [
+						'translationPrefix' => 'vehicles::fields',
+						'fields' => [
+							'sizes_marching_external_length' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_marching_external_width' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_marching_external_height' => ['number' => 'numeric|nullable|min:0'],
+						],
+						'width' => ['large']
+					],
 				],
-				'width' => ["1-3@l", '1-2@m']
+				'fields' => [],
+				'width' => ['large']
 			],
 			'misureUtilizzo' => [
 				'translationPrefix' => 'vehicles::fields',
-				'fields' => [
-					'sizes_functioning_external_length' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_functioning_external_width' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_functioning_external_height' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_functioning_internal_length' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_functioning_internal_width' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_functioning_internal_height' => ['number' => 'numeric|nullable|min:0'],
-					'sizes_functioning_internal_volume_mq' => ['number' => 'numeric|nullable|min:0'],
-					'mass_max_loading' => ['number' => 'numeric|nullable|min:0'],
+				'fieldsets' => [
+					'interne' => [
+						'translationPrefix' => 'vehicles::fields',
+						'fields' => [
+							'sizes_functioning_internal_length' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_functioning_internal_width' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_functioning_internal_height' => ['number' => 'numeric|nullable|min:0'],
+						],
+						'width' => ['large']
+					],
+					'esterne' => [
+						'translationPrefix' => 'vehicles::fields',
+						'fields' => [
+							'sizes_functioning_external_length' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_functioning_external_width' => ['number' => 'numeric|nullable|min:0'],
+							'sizes_functioning_external_height' => ['number' => 'numeric|nullable|min:0'],
+						],
+						'width' => ['large']
+					],
 				],
-				'width' => ["1-3@l", '1-2@m']
+				'fields' => [],
+				'width' => ['large']
 			],
 			'consumptions' => [
 				'translationPrefix' => 'vehicles::fields',

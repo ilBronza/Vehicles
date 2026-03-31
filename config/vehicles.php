@@ -1,5 +1,6 @@
 <?php
 
+use IlBronza\Vehicles\Helpers\VehicleTypeVehicleSellableSupplierPricesHelper;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingCreateStoreController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingDestroyController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingEditUpdateController;
@@ -7,18 +8,18 @@ use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingIndexController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingShowController;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\KmreadingFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleFieldsGroupParametersFile;
+use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleModelFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleOrderrowsFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleQuotationrowsFieldsGroupParametersFile;
-use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleModelFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleTypeFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingShowFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleEditUpdateFieldsetsParameters;
-use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleShowFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleModelCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleModelEditUpdateFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleShowFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeSellableEditUpdateFieldsetsParameters;
@@ -42,9 +43,9 @@ use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleEngagementController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleIndexController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleShowController;
 use IlBronza\Vehicles\Models\Kmreading;
+use IlBronza\Vehicles\Models\Sellables\VehicleType;
 use IlBronza\Vehicles\Models\Vehicle;
 use IlBronza\Vehicles\Models\VehicleModel;
-use IlBronza\Vehicles\Models\Sellables\VehicleType;
 
 return [
     'routePrefix' => 'ibVehicles.',
@@ -62,6 +63,10 @@ return [
     ],
 
     'enabled' => true,
+
+    'sellableSupplierPricesHelper' => [
+        'vehicleType_vehicle' => VehicleTypeVehicleSellableSupplierPricesHelper::class
+    ],
 
     'models' => [
         'orderrow' => [

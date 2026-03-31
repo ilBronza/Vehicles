@@ -4,8 +4,8 @@ namespace IlBronza\Vehicles\Models\Sellables;
 
 use IlBronza\Prices\Models\Interfaces\WithPriceInterface;
 use IlBronza\Prices\Models\Traits\HasCustomPricesTrait;
-use IlBronza\Prices\Models\Traits\InteractsWithPriceTrait;
-use IlBronza\Prices\Models\Traits\UpdatePricesOnSaveTrait;
+// use IlBronza\Prices\Models\Traits\InteractsWithPriceTrait;
+// use IlBronza\Prices\Models\Traits\UpdatePricesOnSaveTrait;
 use IlBronza\Products\Models\Interfaces\SellableItemInterface;
 use IlBronza\Products\Models\Interfaces\SellableSupplierPriceCreatorBaseClass;
 use IlBronza\Products\Models\Traits\Sellable\InteractsWithSellableTrait;
@@ -16,15 +16,15 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 {
 	use HasCustomPricesTrait;
 	use InteractsWithSellableTrait;
-	use InteractsWithPriceTrait;
-	use UpdatePricesOnSaveTrait;
+	// use InteractsWithPriceTrait;
+	// use UpdatePricesOnSaveTrait;
 
 	public function getPriceFieldsForSellable() : array
 	{
 		return [
-			'cost_per_km',
-			'cost_per_movimentation',
-			'cost_per_day',
+			'cost_per_km' => 'km',
+			'cost_per_movimentation' => 'forfait',
+			'cost_per_day' => 'day',
 		];
 	}
 
@@ -40,9 +40,14 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 		return $class ? new $class : new \IlBronza\Vehicles\Helpers\VehiclePricesCreatorHelper;
 	}
 
-	public function mustAutomaticallyUpdatePrices() : bool
+	/**
+	 * SE NULL ignora
+	 * SE FALSE NO
+	 * SE TRUE SI'
+	 **/
+	public function mustAutomaticallyUpdatePrices() : ? bool
 	{
-		return false;
+		return null;
 	}
 
 	public function getEditParametersFile() : string

@@ -9,21 +9,34 @@ class VehicleTypeEditUpdateFieldsetsParameters extends FieldsetParametersFile
 	public function _getFieldsetsParameters() : array
 	{
 		return [
-			'package' => [
+			'baseParameters' => [
 				'translationPrefix' => 'vehicles::fields',
 				'fields' => [
 					'name' => ['text' => 'string|required'],
 				],
-				'width' => ["1-3@l", '1-2@m"]
+				'width' => ['large']
 			],
-			'pricing' => [
-				'translationPrefix' => 'vehicles::fields',
-				'fields' => [
-					'cost_per_km' => ['number' => 'numeric|nullable|min:0'],
-					'cost_per_movimentation' => ['number' => 'numeric|nullable|min:0'],
-				],
-				'width' => ["1-3@l", '1-2@m']
-			],
+            'costs' => [
+                'translationPrefix' => 'vehicles::fields',
+                'fields' => [
+                    'cost_per_km' => [
+                        'type' => 'number',
+                        'rules' => 'numeric|nullable|min:0',
+                        'vertical' => true
+                    ],
+                    'cost_per_movimentation' => [
+                        'type' => 'number',
+                        'rules' => 'numeric|nullable|min:0',
+                        'vertical' => true
+                    ],
+                    'cost_per_day' => [
+                        'type' => 'number',
+                        'rules' => 'numeric|nullable|min:0',
+                        'vertical' => true
+                    ],
+                ],
+                'width' => ['small']
+            ],
 		];
 	}
 }

@@ -3,7 +3,7 @@
 return [
 	'vehicle' => 'Veicolo',
 	'types' => 'Tipologie',
-	'models' => 'Modelli mezzo',
+	'models' => 'Modelli vehicolo',
 	'kmreadings' => 'Letture kilometriche',
 	'type' => 'Tipologia',
 	'vehiclesManager' => 'Parco Veicoli',

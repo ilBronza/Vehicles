@@ -16,6 +16,8 @@ class VehicleOrderrowsFieldsGroupParametersFile extends FieldsGroupParametersFil
                 'mySelfEdit.order' => 'links.edit',
                 'mySelfSee.order' => 'products::orders.order',
 
+                'sellable.name' => 'flat',
+
                 'description' => [
                     'type' => 'flat',
                     'width' => '20em'

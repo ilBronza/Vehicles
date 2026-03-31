@@ -38,11 +38,12 @@ return [
 	'internal_volume_mq' => 'Volume interno',
 	'fuels' => 'Carburante',
 	'km' => 'Km',
+	'costs' => 'Costi',
 	'registered_at' => 'Registrato il',
 	'vehicle_id' => 'Veicolo',
 	'user_id' => 'Operatore',
 	'type_id' => 'Tipologia d\'uso',
-	'vehicle_model_id' => 'Modello commerciale',
+	'vehicle_model_id' => 'Modello',
 	'vehicle_type' => 'Tipologia',
 	'vehicleType' => 'Tipologia d\'uso',
 	'vehicleModel' => 'Modello',
@@ -51,6 +52,7 @@ return [
 	'owner' => 'Proprietario',
 	'cost_per_km' => '€/km',
 	'cost_per_movimentation' => '€/movimentazione',
+	'cost_per_day' => '€/giorno',
 	'plate' => 'Targa',
 	'slug' => 'Sigla',
 	'initial_km' => 'Km iniziali',
@@ -87,4 +89,11 @@ return [
 	'vehicleModel.mass_empty' => 'Massa a vuoto',
 	'vehicleModel.mass_max_loading' => 'Massimo carico',
 	'vehicleType.name' => 'Tipologia',
+
+	'user_name' => 'Utilizzatore',
+	'subjects' => 'Soggetti',
+
+	'vehicleType.model' => 'Modello',
+
+	'baseParameters' => 'Dati base'
 ];

@@ -16,8 +16,9 @@ class VehicleTypeFieldsGroupParametersFile extends FieldsGroupParametersFile
 				'mySelfEdit' => 'links.edit',
 				'mySelfSee' => 'links.see',
 				'name' => 'flat',
-				'cost_per_km' => 'flat',
-				'cost_per_movimentation' => 'flat',
+				'cost_per_km' => 'numbers.number2',
+				'cost_per_movimentation' => 'numbers.number2',
+				'cost_per_day' => 'numbers.number2',
 				'vehicles_count' => 'flat',
 				'mySelfDelete' => 'links.delete'
 			]
