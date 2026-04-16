@@ -23,7 +23,8 @@ class VehicleFieldsGroupParametersFile extends FieldsGroupParametersFile
 					'type' => 'links.seeName',
 					'width' => '10em',
 				],
-				'vehicleModel.full_name' => 'flat',
+				'vehicleModel.brand' => 'flat',
+				'vehicleModel.name' => 'flat',
 
 				'vehicleModel.passengers' => 'flat',
 				'vehicleModel.fuels' => 'flat',

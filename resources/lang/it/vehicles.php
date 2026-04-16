@@ -2,10 +2,11 @@
 
 return [
 	'vehicle' => 'Veicolo',
-	'types' => 'Tipologie',
-	'models' => 'Modelli vehicolo',
+	'vehicleTypes' => 'Tipologie',
+	'vehicleModels' => 'Modelli veicolo',
+	'vehicleModel' => 'Modello veicolo',
 	'kmreadings' => 'Letture kilometriche',
-	'type' => 'Tipologia',
+	'vehicleType' => 'Tipologia',
 	'vehiclesManager' => 'Parco Veicoli',
 	'list' => 'Lista veicoli',
 	'vehicles' => 'Veicoli',

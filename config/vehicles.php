@@ -72,6 +72,11 @@ return [
         'orderrow' => [
             'fieldsGroupsFiles' => [
                 'index' => VehicleOrderrowsFieldsGroupParametersFile::class,
+            ],
+            'relatedButtonsMethods' => [
+                'getAddSellableSupplierButton' => true,
+                'getAddRowButton' => true,
+                'getAddRowTableButton' => true
             ]
         ],
         'quotationrow' => [

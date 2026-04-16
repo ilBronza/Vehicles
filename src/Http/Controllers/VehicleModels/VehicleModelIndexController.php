@@ -23,4 +23,9 @@ class VehicleModelIndexController extends VehicleModelCRUD
 			'vehicles'
 		)->get();
 	}
+
+	public function addIndexButtons()
+	{
+		$this->addVehiclesPackageCrossEntityIndexButtons();
+	}
 }

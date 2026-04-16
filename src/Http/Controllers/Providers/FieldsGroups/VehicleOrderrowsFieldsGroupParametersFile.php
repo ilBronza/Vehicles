@@ -27,7 +27,6 @@ class VehicleOrderrowsFieldsGroupParametersFile extends FieldsGroupParametersFil
                 'ends_at' => 'dates.date',
                 'quantity' => 'flat',
                 'calculated_row_total' => 'numbers.price'
-
             ]
         ];
 	}

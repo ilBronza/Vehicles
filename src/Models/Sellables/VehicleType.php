@@ -19,6 +19,8 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 	// use InteractsWithPriceTrait;
 	// use UpdatePricesOnSaveTrait;
 
+	static $deletingRelationships = ['sellables'];
+
 	public function getPriceFieldsForSellable() : array
 	{
 		return [

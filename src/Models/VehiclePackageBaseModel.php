@@ -27,6 +27,9 @@ class VehiclePackageBaseModel extends PackagedBaseModel
 
 	static function getProjectClassName() : string
 	{
+		if(! config('vehicles.models.' . static::getModelConfigPrefix() . '.class'))
+			dd(('vehicles.models.' . static::getModelConfigPrefix() . '.class'));
+
 		return config('vehicles.models.' . static::getModelConfigPrefix() . '.class');
 	}
 

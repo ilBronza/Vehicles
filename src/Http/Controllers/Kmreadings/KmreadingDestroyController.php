@@ -2,7 +2,7 @@
 
 namespace IlBronza\Vehicles\Http\Controllers\Kmreadings;
 
-use IlBronza\CRUD\Http\Controllers\Traits\PackageStandardDestroyTrait;
+use IlBronza\CRUD\Http\Controllers\Traits\StandardTraits\PackageStandardDestroyTrait;
 
 class KmreadingDestroyController extends KmreadingCRUD
 {

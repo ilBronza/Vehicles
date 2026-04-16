@@ -28,4 +28,9 @@ class KmreadingIndexController extends KmreadingCRUD
         return $this->getModelClass()::with('vehicle')->get();
     }
 
+	public function addIndexButtons()
+	{
+		$this->addVehiclesPackageCrossEntityIndexButtons();
+	}
+
 }

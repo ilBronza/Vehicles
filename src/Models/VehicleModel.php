@@ -47,6 +47,22 @@ class VehicleModel extends VehiclePackageBaseModel
 		return $w * $l * $h / (1000 * 1000 * 1000);
 	}
 
+	public function getExternalSizesAndMassString() : ?string
+	{
+		$pieces = [];
+
+		if ($this->getExternalWidth())
+			$pieces[] = "{$this->getExternalWidth()}m";
+
+		if ($this->getExternalLength())
+			$pieces[] = "{$this->getExternalLength()}m";
+
+		if ($this->getExternalHeight())
+			$pieces[] = "{$this->getExternalHeight()}m";
+
+		return "Mis. Marcia: " . implode(' x ', $pieces) . " Pes: {$this->getMassEmpty()}Kg";
+	}
+
 	public function getPassengersCapacity() : ? int
 	{
 		return $this->passengers;

@@ -8,7 +8,7 @@ class VehicleModelFieldsGroupParametersFile extends FieldsGroupParametersFile
 {
 	static function getFieldsGroup() : array
 	{
-		$narrow = ['type' => 'flat', 'width' => '4em'];
+		$narrow = ['type' => 'flat', 'width' => '8em'];
 
 		return [
 			'translationPrefix' => 'vehicles::fields',

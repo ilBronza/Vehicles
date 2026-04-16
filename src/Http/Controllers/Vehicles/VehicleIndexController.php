@@ -32,4 +32,9 @@ class VehicleIndexController extends VehicleCRUD
                 ->get();
     }
 
+	public function addIndexButtons()
+	{
+		$this->addVehiclesPackageCrossEntityIndexButtons();
+	}
+
 }

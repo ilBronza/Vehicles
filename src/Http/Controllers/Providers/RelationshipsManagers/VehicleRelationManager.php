@@ -4,19 +4,16 @@ namespace IlBronza\Vehicles\Http\Controllers\Providers\RelationshipsManagers;
 
 use IlBronza\CRUD\Providers\RelationshipsManager\RelationshipsManager;
 use IlBronza\Products\Models\Traits\Sellable\InteractsWithSupplierTrait;
+use IlBronza\Products\Providers\Helpers\Suppliers\SupplierRelationManagerParametersHelper;
 
 class VehicleRelationManager Extends RelationshipsManager
 {
-	public  function getAllRelationsParameters() : array
+	public function getAllRelationsParameters() : array
 	{
 		$relations = [];
 
 		if(in_array(InteractsWithSupplierTrait::class, class_uses_recursive($this->getModel())))
-		{
-			$relations['sellableSuppliers'] = $this->getModel()->getSellableSuppliersBySupplierRelationsManagerParameters();
-			$relations['orderrows'] = $this->getModel()->getOrderrowsBySupplierRelationsManagerParameters();
-			$relations['quotationrows'] = $this->getModel()->getQuotationrowsBySupplierRelationsManagerParameters();
-		}
+			$relations = array_merge($relations, SupplierRelationManagerParametersHelper::getSupplierRelationManagerParameters($this->getModel()));
 
 		$relations['kmreadings'] = config('vehicles.models.kmreading.controllers.index');
 		// $relations['vehicleModel'] = config('vehicles.models.vehicleModel.controllers.show');
