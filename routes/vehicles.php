@@ -1,5 +1,6 @@
 <?php
 
+use IlBronza\Products\Models\Sellables\SellableSupplier;
 use IlBronza\Vehicles\Vehicles;
 
 Route::group([

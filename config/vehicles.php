@@ -19,6 +19,8 @@ use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleCreateStoreFie
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleModelCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleModelEditUpdateFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleOrderrowEditUpdateFieldsetsParameters;
+use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleQuotationrowEditUpdateFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleShowFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeCreateStoreFieldsetsParameters;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\VehicleTypeEditUpdateFieldsetsParameters;
@@ -77,11 +79,22 @@ return [
                 'getAddSellableSupplierButton' => true,
                 'getAddRowButton' => true,
                 'getAddRowTableButton' => true
+            ],
+            'parametersFiles' => [
+                'edit' => VehicleOrderrowEditUpdateFieldsetsParameters::class
             ]
         ],
         'quotationrow' => [
             'fieldsGroupsFiles' => [
                 'index' => VehicleQuotationrowsFieldsGroupParametersFile::class,
+            ],
+            'relatedButtonsMethods' => [
+                'getAddSellableSupplierButton' => true,
+                'getAddRowButton' => true,
+                'getAddRowTableButton' => true
+            ],
+            'parametersFiles' => [
+                'edit' => VehicleQuotationrowEditUpdateFieldsetsParameters::class
             ]
         ],
         'vehicleType' => [

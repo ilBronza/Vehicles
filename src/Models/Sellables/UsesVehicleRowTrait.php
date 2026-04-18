@@ -2,13 +2,25 @@
 
 namespace IlBronza\Vehicles\Models\Sellables;
 
+use IlBronza\Products\Models\Interfaces\RowInterface;
+use IlBronza\Products\Providers\Helpers\RowsHelpers\RowsCostsFieldsHelper;
 use IlBronza\Vehicles\Models\Sellables\VehicleOrderrow;
 use Illuminate\Support\Collection;
 
 trait UsesVehicleRowTrait
 {
+	public function initializeUsesVehicleRowTrait()
+	{
+		$this->addFieldsToUpdateByRowTypes('vehicleRows');
+	}
+
 	// VehicleOrderrow or VehicleQuotationrow
 	abstract public function getVehicleRowRelatedModel() : string;
+
+	public function rowRelationByVehicleType()
+	{
+		return $this->vehicleRows();
+	}
 
 	public function vehicleRows()
 	{
@@ -55,4 +67,23 @@ trait UsesVehicleRowTrait
 		return $this->vehicleRows()->with($relations)->get();
 	}
 
+	public function getTotalVehicleRowsCostAttribute()
+	{
+		return $this->getTotalByCustomRowsCost('vehicleRows');
+	}
+
+	public function getTotalVehicleRowsRevenueAttribute()
+	{
+		return $this->getTotalByCustomRowsRevenue('vehicleRows');
+	}
+
+	public function getMarginVehicleRowsAttribute()
+	{
+		return $this->getMarginByCustomRows('vehicleRows');
+	}
+
+	public function getPercentageMarginVehicleRowsAttribute()
+	{
+		return $this->getPercentageMarginByCustomRows('vehicleRows');
+	}
 }

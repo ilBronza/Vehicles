@@ -13,8 +13,7 @@ class VehicleOrderrowsFieldsGroupParametersFile extends FieldsGroupParametersFil
             'fields' => 
             [
                 'mySelfPrimary' => 'primary',
-                'mySelfEdit.order' => 'links.edit',
-                'mySelfSee.order' => 'products::orders.order',
+                'mySelfEdit' => 'links.edit',
 
                 'sellable.name' => 'flat',
 
@@ -25,8 +24,19 @@ class VehicleOrderrowsFieldsGroupParametersFile extends FieldsGroupParametersFil
 
                 'starts_at' => 'dates.date',
                 'ends_at' => 'dates.date',
-                'quantity' => 'flat',
-                'calculated_row_total' => 'numbers.price'
+                'quantity' => [
+                    'type' => 'editor.numeric',
+                    'refreshRow' => true,
+                ],
+                'calculated_cost_per_km' => 'editor.price',
+                'calculated_cost_per_movimentation' => 'editor.price',
+                'calculated_cost_per_day' => 'editor.price',
+
+                'calculated_total_row_cost' => 'editor.price',
+                'approved_total_row_cost' => 'editor.toggle',
+                
+                'calculated_total_row_revenue' => 'editor.price',
+                'approved_total_row_revenue' => 'editor.toggle',
             ]
         ];
 	}

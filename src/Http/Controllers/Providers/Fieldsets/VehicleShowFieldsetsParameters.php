@@ -24,27 +24,11 @@ class VehicleShowFieldsetsParameters extends FieldsetParametersFile
                     'type_id' => [
                         'type' => 'select',
                         'multiple' => false,
-                        'rules' => 'string|nullable|exists:vehicles__types,id',
+                        'rules' => 'string|required|exists:vehicles__types,id',
                         'relation' => 'vehicleType'
                     ],
                 ],
 	            'width' => ['large']
-            ],
-            'subjects' => [
-                'translationPrefix' => 'vehicles::fields',
-                'fields' => [
-                    'owner_name' => [
-                        'type' => 'text',
-                        'rules' => 'string|nullable',
-                        'vertical' => true
-                    ],
-                    'user_name' => [
-                        'type' => 'text',
-                        'rules' => 'string|nullable',
-                        'vertical' => true
-                    ],
-                ],
-                'width' => ['large']
             ],
             'costs' => [
                 'translationPrefix' => 'vehicles::fields',
