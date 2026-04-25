@@ -4,7 +4,6 @@ namespace IlBronza\Vehicles\Models\Sellables;
 
 use IlBronza\Products\Models\Interfaces\SupplierInterface;
 use IlBronza\Products\Models\Traits\Sellable\InteractsWithSupplierTrait;
-use IlBronza\Products\Models\Traits\Sellable\SingleSellableSupplierTrait;
 use IlBronza\Products\Providers\Helpers\Sellables\SellableCreatorHelper;
 use IlBronza\Vehicles\Models\Vehicle as IbVehicle;
 use Illuminate\Support\Collection;
@@ -12,7 +11,6 @@ use Illuminate\Support\Collection;
 class Vehicle extends IbVehicle implements SupplierInterface
 {
 	use InteractsWithSupplierTrait;
-	use SingleSellableSupplierTrait;
 
 	public function getPossibleSellables() : Collection
 	{

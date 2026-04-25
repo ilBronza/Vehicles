@@ -2,6 +2,10 @@
 
 namespace IlBronza\Vehicles\Models\Sellables;
 
+use IlBronza\Products\Casts\CalculatedTotalCostExtraField;
+use IlBronza\Products\Casts\CalculatedTotalMarginExtraField;
+use IlBronza\Products\Casts\CalculatedTotalPercentageMarginExtraField;
+use IlBronza\Products\Casts\CalculatedTotalRevenueExtraField;
 use IlBronza\Products\Models\Interfaces\RowInterface;
 use IlBronza\Products\Providers\Helpers\RowsHelpers\RowsCostsFieldsHelper;
 use IlBronza\Vehicles\Models\Sellables\VehicleOrderrow;
@@ -12,6 +16,8 @@ trait UsesVehicleRowTrait
 	public function initializeUsesVehicleRowTrait()
 	{
 		$this->addFieldsToUpdateByRowTypes('vehicleRows');
+
+		$this->addSummaryFieldsCastsByRowTypes('vehicleRows');
 	}
 
 	// VehicleOrderrow or VehicleQuotationrow
@@ -65,25 +71,5 @@ trait UsesVehicleRowTrait
 				$relations[] = 'extraFields';
 
 		return $this->vehicleRows()->with($relations)->get();
-	}
-
-	public function getTotalVehicleRowsCostAttribute()
-	{
-		return $this->getTotalByCustomRowsCost('vehicleRows');
-	}
-
-	public function getTotalVehicleRowsRevenueAttribute()
-	{
-		return $this->getTotalByCustomRowsRevenue('vehicleRows');
-	}
-
-	public function getMarginVehicleRowsAttribute()
-	{
-		return $this->getMarginByCustomRows('vehicleRows');
-	}
-
-	public function getPercentageMarginVehicleRowsAttribute()
-	{
-		return $this->getPercentageMarginByCustomRows('vehicleRows');
 	}
 }

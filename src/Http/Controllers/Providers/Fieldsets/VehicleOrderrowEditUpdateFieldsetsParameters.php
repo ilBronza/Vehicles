@@ -2,16 +2,14 @@
 
 namespace IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets;
 
-use IlBronza\Form\Helpers\FieldsetsProvider\FieldsetParametersFile;
+use IlBronza\Products\Providers\Helpers\RowsHelpers\RowFieldsetParametersFile;
+use IlBronza\Vehicles\Models\VehicleType;
 
-class VehicleOrderrowEditUpdateFieldsetsParameters extends FieldsetParametersFile
+class VehicleOrderrowEditUpdateFieldsetsParameters extends RowFieldsetParametersFile
 {
     public function _getFieldsetsParameters() : array
     {
-        $costField = ['number' => 'numeric|nullable'];
-        $booleanField = ['boolean' => 'bool|nullable'];
-
-        return [
+        $result = [
             'main' => [
                 'translationPrefix' => 'products::fields',
                 'fields' => [
@@ -19,20 +17,11 @@ class VehicleOrderrowEditUpdateFieldsetsParameters extends FieldsetParametersFil
                 ],
                 'width' => ["1-3@l", '1-2@m']
             ],
-            'costs' => [
-                'translationPrefix' => 'products::fields',
-                'fields' => [
-                    'calculated_cost_per_km' => $costField,
-                    'calculated_cost_per_movimentation' => $costField,
-                    'calculated_cost_per_day' => $costField,
-                    'approved_total_row_cost' => $booleanField,
-                    'calculated_total_row_cost' => $costField,
-                    'approved_total_row_revenue' => $booleanField,
-                    'calculated_total_row_revenue' => $costField,
-                ],
-                'width' => ["1-3@l", '1-2@m']
-            ],
-
         ];
+
+        return static::addRowCostsFieldset(
+            $result,
+            VehicleType::gpc()::make()
+        );
     }
 }

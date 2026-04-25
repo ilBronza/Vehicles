@@ -3,7 +3,7 @@
 namespace IlBronza\Vehicles\Models\Sellables;
 
 use IlBronza\Products\Models\Quotations\CustomQuotationrow;
-use IlBronza\Vehicles\Models\Traits\VehicleRowQuotationOrderCommonTrait;
+use IlBronza\Vehicles\Models\Sellables\VehicleRowQuotationOrderCommonTrait;
 
 class VehicleQuotationrow extends CustomQuotationrow
 {

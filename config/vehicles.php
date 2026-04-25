@@ -1,6 +1,5 @@
 <?php
 
-use IlBronza\Vehicles\Helpers\VehicleTypeVehicleSellableSupplierPricesHelper;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingCreateStoreController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingDestroyController;
 use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingEditUpdateController;
@@ -9,7 +8,9 @@ use IlBronza\Vehicles\Http\Controllers\Kmreadings\KmreadingShowController;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\KmreadingFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleModelFieldsGroupParametersFile;
+use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleOrderrowsBySupplierFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleOrderrowsFieldsGroupParametersFile;
+use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleQuotationrowsBySupplierFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleQuotationrowsFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\FieldsGroups\VehicleTypeFieldsGroupParametersFile;
 use IlBronza\Vehicles\Http\Controllers\Providers\Fieldsets\KmreadingCreateStoreFieldsetsParameters;
@@ -45,6 +46,7 @@ use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleEngagementController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleIndexController;
 use IlBronza\Vehicles\Http\Controllers\Vehicles\VehicleShowController;
 use IlBronza\Vehicles\Models\Kmreading;
+use IlBronza\Vehicles\Models\Sellables\Helpers\VehicleTypeVehicleSellableSupplierPricesHelper;
 use IlBronza\Vehicles\Models\Sellables\VehicleType;
 use IlBronza\Vehicles\Models\Vehicle;
 use IlBronza\Vehicles\Models\VehicleModel;
@@ -73,6 +75,8 @@ return [
     'models' => [
         'orderrow' => [
             'fieldsGroupsFiles' => [
+                'vehicleOrderrow' => VehicleOrderrowsFieldsGroupParametersFile::class,
+                'indexBySupplier' => VehicleOrderrowsBySupplierFieldsGroupParametersFile::class,
                 'index' => VehicleOrderrowsFieldsGroupParametersFile::class,
             ],
             'relatedButtonsMethods' => [
@@ -87,6 +91,8 @@ return [
         'quotationrow' => [
             'fieldsGroupsFiles' => [
                 'index' => VehicleQuotationrowsFieldsGroupParametersFile::class,
+                'indexBySupplier' => VehicleOrderrowsBySupplierFieldsGroupParametersFile::class,
+                'indexBySupplier' => VehicleQuotationrowsBySupplierFieldsGroupParametersFile::class,
             ],
             'relatedButtonsMethods' => [
                 'getAddSellableSupplierButton' => true,

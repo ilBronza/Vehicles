@@ -16,8 +16,6 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 {
 	use HasCustomPricesTrait;
 	use InteractsWithSellableTrait;
-	// use InteractsWithPriceTrait;
-	// use UpdatePricesOnSaveTrait;
 
 	static $deletingRelationships = ['sellables'];
 
@@ -35,9 +33,32 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 		return $this->vehicles()->with('supplier')->get()->pluck('supplier')->filter();
 	}
 
+	public function getPossibleSuppliers() : Collection
+	{
+		return collect();
+	}
+
+	public function mustAutomaticallyUpdatePricesBySellable() : bool
+	{
+		return false;
+	}
+
+	public function getRowFieldsToStore() : array
+	{
+		$result = [
+			'stored_cost_per_km' => 'cost_per_km',
+			'stored_cost_per_movimentation' => 'cost_per_movimentation',
+			'stored_cost_per_day' => 'cost_per_day',
+		];
+
+		return $result;
+	}
+
 	public function getPriceCreator() : ?SellableSupplierPriceCreatorBaseClass
 	{
 		$class = config('vehicles.models.vehicleType.helpers.sellableSupplierPricesCreator');
+
+		throw new \Exception($class);
 
 		return $class ? new $class : new \IlBronza\Vehicles\Helpers\VehiclePricesCreatorHelper;
 	}
@@ -63,5 +84,15 @@ class VehicleType extends IbVehicleType implements SellableItemInterface, WithPr
 			'prices',
 			'supplier.target',
 		];
+	}
+
+	public function getContainerModelRelatedTablesToRefresh() : array
+	{
+		return ['vehicleRows'];
+	}
+
+	public function getDependentSellables() : array
+	{
+		return [];
 	}
 }

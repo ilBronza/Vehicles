@@ -1,6 +1,6 @@
 <?php
 
-namespace IlBronza\Vehicles\Models\Traits;
+namespace IlBronza\Vehicles\Models\Sellables;
 
 use IlBronza\Products\Models\Orders\Orderrow;
 use IlBronza\Vehicles\Models\VehicleType;
@@ -22,7 +22,6 @@ trait VehicleRowQuotationOrderCommonTrait
 		return $this->getModelContainer()?->km * 2;
 	}
 
-
 	public function getCalculatedCostPerKm() : float
 	{
 		return $this->calculated_cost_per_km;
@@ -36,6 +35,23 @@ trait VehicleRowQuotationOrderCommonTrait
 	public function getCalculatedCostPerDay() : float
 	{
 		return $this->calculated_cost_per_day ?? 0;
+	}
+
+
+	public function getSingleCostAttribute() : float
+	{
+		if(! $this->getQuantity())
+			return 0;
+
+		return $this->getTotalRowCost() / $this->getQuantity();
+	}
+
+	public function getSingleRevenueAttribute() : float
+	{
+		if(! $this->getQuantity())
+			return 0;
+
+		return $this->getTotalRowRevenue() / $this->getQuantity();
 	}
 
 	//total_row_cost
